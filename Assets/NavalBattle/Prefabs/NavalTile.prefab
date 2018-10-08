@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2300000}
   - component: {fileID: 13600000}
   m_Layer: 0
-  m_Name: SquareTile
+  m_Name: NavalTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.353, z: -0}
+  m_LocalPosition: {x: -0.032, y: 2.383, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,7 +46,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: dda58bbf24c3c9242a562cab63d115bf, type: 2}
+  - {fileID: 2100000, guid: 0c6f435f5788b9b47b19facb83f95165, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -72,7 +72,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300000, guid: 86f80aeb8fae3cc4d822ffd73c00f1b3, type: 3}
+  m_Mesh: {fileID: 4300000, guid: f1f750a85e59a17459e9a75212ad02c8, type: 3}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -83,9 +83,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2.67
+  m_Height: 2.43
   m_Direction: 1
-  m_Center: {x: 0, y: -1.0003318, z: 0}
+  m_Center: {x: 0, y: -0.9843122, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
