@@ -7,7 +7,7 @@ using MapNavKit;
 
 public class NavalUnit : MonoBehaviour 
 {
-	public float moveSpeed = 1f;
+	public float moveSpeed = 2.0f;
 
 	public NavalTile tile { get; set; }	// the tile that this unit is on
 	public int movesLeft { get; set; }		// each unit can move up to 3 tiles per turn
@@ -29,7 +29,7 @@ public class NavalUnit : MonoBehaviour
 	/// </summary>
 	public void Resetunit()
 	{
-		movesLeft = 5;
+		movesLeft = 25;
 	}
 
 	/// <summary>

@@ -96,10 +96,6 @@ public class NavalMap : MapNavHexa
 		}
 	}
 
-
-
-
-
 	// this is called by NodesAround when wanting to know if the specified tile is valid
 	// in the example the user can mark certain nodes "invalid" so I will use that here
 	// in a game this could represent a node that is occupied by a unit when you want
