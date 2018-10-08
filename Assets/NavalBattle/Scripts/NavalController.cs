@@ -35,12 +35,11 @@ public class NavalController : MonoBehaviour
 	{
 		// get reference to the mapnav map
 		map = GameObject.Find("Map").GetComponent<NavalMap>();
-
-		// also used in sample4b
-		// if (map == null) map = GameObject.Find("Map").GetComponent<Sample4bMap>();
+		
+		int unitNum = (int)(map.mapVerticalSize / 2);
 
 		// in this sample I will simply spawn 10 units on random locations of the map
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < unitNum; i++)
 		{
 			NavalTile selectedTile = null;
 
@@ -49,7 +48,7 @@ public class NavalController : MonoBehaviour
 			// selected tile before accepting it.
 			while (true)
 			{
-				int idx = Random.Range(0, map.grid.Length);
+				int idx = Random.Range(1, map.mapVerticalSize) * map.mapHorizontalSize - 1;
 
 				// make sure this is a valid node
 				if (map.ValidIDX(idx))
