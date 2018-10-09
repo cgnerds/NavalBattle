@@ -8,6 +8,8 @@ public class NavalController : MonoBehaviour {
 	// ------------------------------------------------------------------------------------------------------------
 	#region properties
 
+	public static NavalController Instance;
+
 	public GameObject enemyFab; // prefab of enemy
 	public GameObject soldierFab; // prefab of soldier
 
@@ -19,7 +21,8 @@ public class NavalController : MonoBehaviour {
 
 	protected MapNavBase map; // reference to the mapNav grid
 	protected LayerMask clickMask = (1 << 8 | 1 << 9); // in this sample layer 8 = tiles collider and layer 10 = unit's collider
-	protected List<NavalUnit> units = new List<NavalUnit> ();
+	protected List<NavalUnit> units = new List<NavalUnit>(); // units
+	public List<Enemy> enemyList = new List<Enemy> (); // enemy list
 	protected NavalUnit activeUnit = null; // the currently selected unit
 	protected List<GameObject> moveMarkers = new List<GameObject> ();
 	protected List<NavalTile> validMoveNodes = new List<NavalTile> ();
@@ -29,6 +32,10 @@ public class NavalController : MonoBehaviour {
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
 	#region start
+
+	private void Awake() {
+		Instance = this;
+	}
 
 	protected void Start () 
 	{
@@ -77,7 +84,11 @@ public class NavalController : MonoBehaviour {
 			NavalUnit unit = go.GetComponent<NavalUnit> ();
 			unit.Resetunit (); // reset its moves now too
 			unit.LinkWithTile (selectedTile);
-			units.Add (unit); // keep a list of all units for quick access
+			units.Add (unit); // keep a list of all enemies for quick access
+
+			//** 添加敌人
+			Enemy enemy = go.GetComponent<Enemy>();
+			enemyList.Add(enemy);
 		}
 	}
 
@@ -119,7 +130,7 @@ public class NavalController : MonoBehaviour {
 			NavalUnit unit = go.GetComponent<NavalUnit> ();
 			unit.Resetunit (); // reset its moves now too
 			unit.LinkWithTile (selectedTile);
-			units.Add (unit); // keep a list of all units for quick access
+			// units.Add (unit); // keep a list of all units for quick access
 		}
 	}
 
@@ -172,10 +183,6 @@ public class NavalController : MonoBehaviour {
 
 
 					activeUnit = hit.transform.GetComponent<NavalUnit> ();
-
-
-                    //** 
-					Debug.Log(activeUnit.name);
 
 					if (activeUnit != null) 
 					{

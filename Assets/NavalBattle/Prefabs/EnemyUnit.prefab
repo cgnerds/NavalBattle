@@ -27,8 +27,9 @@ GameObject:
   - component: {fileID: 422194}
   - component: {fileID: 114859897276336544}
   - component: {fileID: 13643794}
+  - component: {fileID: 114886580924134844}
   m_Layer: 0
-  m_Name: NavalUnit
+  m_Name: EnemyUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,3 +140,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+--- !u!114 &114886580924134844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c3da139c9d6504dba1bfdc772c311d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_life: 15
+  m_maxlife: 15
+  lifebarFab: {fileID: 1991833703067014, guid: 0a11bfbce3974b246834c83c904cd290, type: 2}

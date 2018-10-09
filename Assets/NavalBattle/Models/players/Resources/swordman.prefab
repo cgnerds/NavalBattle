@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 4294711049774946}
   - component: {fileID: 95075406238319638}
   - component: {fileID: 114161431644569786}
+  - component: {fileID: 114180009352033224}
   m_Layer: 0
   m_Name: swordman
   m_TagString: Untagged
@@ -1615,6 +1616,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+--- !u!114 &114180009352033224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222813378051226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875a549d48be2f64c8e0c710622a1b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackArea: 2
+  attackPower: 2
+  attackInterval: 1
 --- !u!137 &137236967593100082
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
