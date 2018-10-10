@@ -79,6 +79,7 @@ public class NavalController : MonoBehaviour {
 			GameObject go = (GameObject) Instantiate (enemyFab);
 			go.transform.position = selectedTile.position;
 			go.layer = 9; // in this sample Units must be in layer 9
+			go.tag = "Enemy";
 
 			// be sure to tell the tile that this Unit is on it
 			NavalUnit unit = go.GetComponent<NavalUnit> ();

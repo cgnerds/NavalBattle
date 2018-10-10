@@ -55,6 +55,7 @@ public class NavalMap : MapNavHexa
 				GameObject go = (GameObject)Instantiate(tileFab);
 				go.name = "Tile " + idx.ToString();
 				go.layer = tileLayer; // set the layer since I will need it in Sample4Controller to check what the player clicked on
+				go.tag = "Tile";
 				go.transform.position = grid[idx].position;
 				go.transform.parent = parent;
 
