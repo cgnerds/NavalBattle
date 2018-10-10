@@ -21,7 +21,7 @@ public class NavalController : MonoBehaviour {
 
 	protected MapNavBase map; // reference to the mapNav grid
 	protected LayerMask clickMask = (1 << 8 | 1 << 9); // in this sample layer 8 = tiles collider and layer 10 = unit's collider
-	protected List<NavalUnit> units = new List<NavalUnit>(); // units
+	protected List<NavalUnit> units = new List<NavalUnit> (); // units
 	public List<Enemy> enemyList = new List<Enemy> (); // enemy list
 	protected NavalUnit activeUnit = null; // the currently selected unit
 	protected List<GameObject> moveMarkers = new List<GameObject> ();
@@ -33,42 +33,36 @@ public class NavalController : MonoBehaviour {
 	// ------------------------------------------------------------------------------------------------------------
 	#region start
 
-	private void Awake() {
+	private void Awake () {
 		Instance = this;
 	}
 
-	protected void Start () 
-	{
+	protected void Start () {
 		// get reference to the mapnav map
 		map = GameObject.Find ("Map").GetComponent<NavalMap> ();
 
-		SpawnEnemies();
+		SpawnEnemies ();
 		// SpawnSoldiers();
 	}
 
-	void SpawnEnemies () 
-	{
+	void SpawnEnemies () {
 		// spawn mapVerticalSize/2 units on random locations of the map's right side
 		int unitNum = (int) (map.mapVerticalSize / 2);
 
-		for (int i = 0; i < unitNum; i++)
-		{
+		for (int i = 0; i < unitNum; i++) {
 			NavalTile selectedTile = null;
 
 			// find a tile to place the unit on. I will randomly select one.
 			// but I need to check if there is not already a unit on the 
 			// selected tile before accepting it.
-			while (true) 
-			{
+			while (true) {
 				int idx = Random.Range (1, map.mapVerticalSize) * map.mapHorizontalSize - 1;
 
 				// make sure this is a valid node
-				if (map.ValidIDX (idx)) 
-				{
+				if (map.ValidIDX (idx)) {
 					// now check if there is not already a unit on it
 					selectedTile = map.grid[idx] as NavalTile;
-					if (selectedTile.unit == null) 
-					{
+					if (selectedTile.unit == null) {
 						// no unit on it, lets use it
 						break;
 					}
@@ -88,47 +82,56 @@ public class NavalController : MonoBehaviour {
 			units.Add (unit); // keep a list of all enemies for quick access
 
 			//** 添加敌人
-			Enemy enemy = go.GetComponent<Enemy>();
-			enemyList.Add(enemy);
+			Enemy enemy = go.GetComponent<Enemy> ();
+			enemyList.Add (enemy);
 		}
 
-		// set each enemy's targets
-	    int idy = 105; //Random.Range (0, map.mapVerticalSize) * map.mapHorizontalSize + 4;
-		NavalTile targetTile = null;
-		if(map.ValidIDX(idy))
-		{
-			targetTile = map.grid[idy] as NavalTile;
+		for (int j = 0; j < unitNum; j++) 
+		{ 
+			NavalTile targetTile = null;
+			while(true)
+			{
+			    int idy = Random.Range (0, map.mapVerticalSize) * map.mapHorizontalSize + 4;
+			    // set each enemy's targets
+			    if (map.ValidIDX (idy))
+			    {
+				    targetTile = map.grid[idy] as NavalTile;
+					if(targetTile.target == false)
+					{
+						targetTile.target =true;
+	                    break;
+					}
+			    }
+			}
+
+			List<MapNavNode> unitPath = map.Path<MapNavNode> (units[j].tile, targetTile, OnNodeCostCallback);
+			if (unitPath != null) 
+			{
+				units[j].Move (unitPath, null);
+			}
+
 		}
-		List<MapNavNode> unitPath = map.Path<MapNavNode>(units[0].tile, targetTile, OnNodeCostCallback);
-		if(unitPath != null)
-		{
-			units[0].Move(unitPath, null);
-		}
+
 	}
 
-	void SpawnSoldiers () 
-	{
+	void SpawnSoldiers () {
 		// spawn mapVerticalSize/2 soldiers on random locations of the map's left side
 		int unitNum = (int) (map.mapVerticalSize / 2);
 
-		for (int i = 0; i < unitNum; i++)
-		{
+		for (int i = 0; i < unitNum; i++) {
 			NavalTile selectedTile = null;
 
 			// find a tile to place the unit on. I will randomly select one.
 			// but I need to check if there is not already a unit on the 
 			// selected tile before accepting it.
-			while (true) 
-			{
+			while (true) {
 				int idx = Random.Range (0, map.mapVerticalSize) * map.mapHorizontalSize;
 
 				// make sure this is a valid node
-				if (map.ValidIDX (idx)) 
-				{
+				if (map.ValidIDX (idx)) {
 					// now check if there is not already a unit on it
 					selectedTile = map.grid[idx] as NavalTile;
-					if (selectedTile.unit == null) 
-					{
+					if (selectedTile.unit == null) {
 						// no unit on it, lets use it
 						break;
 					}
@@ -154,7 +157,6 @@ public class NavalController : MonoBehaviour {
 
 	protected void Update () {
 
-
 		if (Input.GetMouseButtonDown (0) && GUIUtility.hotControl == 0 && unitMoving == false) {
 			// Check what the player clicked on. I've set Tiles to be on Layer 8 and Unit on Layer 9.
 			// Each tile has its own collider attached but I could have used a big invisible collider
@@ -164,44 +166,34 @@ public class NavalController : MonoBehaviour {
 
 			RaycastHit hit;
 			Ray r = Camera.main.ScreenPointToRay (Input.mousePosition);
-			if (Physics.Raycast (r, out hit, Mathf.Infinity, clickMask)) 
-			{
-				if (hit.transform.gameObject.layer == 8)
-				{
+			if (Physics.Raycast (r, out hit, Mathf.Infinity, clickMask)) {
+				if (hit.transform.gameObject.layer == 8) {
 					// a tile was clicked
 					NavalTile n = map.NodeAtWorldPosition<NavalTile> (hit.point);
-					if (n != null) 
-					{
+					if (n != null) {
 						Debug.Log ("Clicked on: " + n.tileName);
 
 						// check if a tile that the active unit may move to
-						if (activeUnit != null && validMoveNodes.Contains (n)) 
-						{
+						if (activeUnit != null && validMoveNodes.Contains (n)) {
 							// get the path
 							List<MapNavNode> path = map.Path<MapNavNode> (activeUnit.tile, n, OnNodeCostCallback);
-							if (path != null) 
-							{
+							if (path != null) {
 								unitMoving = true; // need to wait while unit is moving
 								ClearMoveMarkers ();
 								activeUnit.Move (path, OnUnitMoveComplete);
 							}
 						}
 					}
-				}
-				else 
-				{
+				} else {
 					// a unit was clicked. first clear the previously selected unit
-					if (activeUnit != null) 
-					{
+					if (activeUnit != null) {
 						activeUnit.UnitDeSelected ();
 						ClearMoveMarkers ();
 					}
 
-
 					activeUnit = hit.transform.GetComponent<NavalUnit> ();
 
-					if (activeUnit != null) 
-					{
+					if (activeUnit != null) {
 						// tell the unit it was selected so that it can change colour
 						activeUnit.UnitSelected ();
 

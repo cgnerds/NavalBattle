@@ -15,6 +15,7 @@ public class NavalTile : MapNavNode
 	// your custom node type.
 
 	public NavalUnit unit = null; // this will be set if there is a unit on this tile
+	public bool target = false;
 
 	// you can define any number of additional properties and init them when the grid was created
 	// by overriding OnGridChanged() in your class derived from MapNavHexa or MapNavSquare

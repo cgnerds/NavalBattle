@@ -121,7 +121,6 @@ public class Tower : MonoBehaviour {
     // }
 
     private void FireProjectile() {
-        Debug.Log("------Fired-------");
         GameObject bullet = Instantiate(projectile, muzzle.position, muzzle.rotation) as GameObject;
         bullet.GetComponent<Rigidbody>().AddForce(muzzle.forward * 150);
     }
