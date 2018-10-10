@@ -43,7 +43,7 @@ public class NavalController : MonoBehaviour {
 		map = GameObject.Find ("Map").GetComponent<NavalMap> ();
 
 		SpawnEnemies();
-		SpawnSoldiers();
+		// SpawnSoldiers();
 	}
 
 	void SpawnEnemies () 
