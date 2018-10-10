@@ -61,9 +61,10 @@ public class Tower : MonoBehaviour {
     public void RotateTo()
     {
         if (targetEnemy == null)
+        {
+            this.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
             return;
-
-            Debug.Log(targetEnemy.name);
+        }
 
         var targetdir = targetEnemy.transform.position - transform.position;
         targetdir.y = 0; // 保证仅旋转Y轴

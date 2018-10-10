@@ -78,14 +78,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161790}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.03, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458244}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &458244
 Transform:
   m_ObjectHideFlags: 1
@@ -309,8 +309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1916c8b713ca059438688ffcdfe73294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 9513598}
-  fireSpeed: 3
+  attackArea: 3
+  attackPower: 2
+  attackInterval: 2
   muzzle: {fileID: 475962}
   projectile: {fileID: 130886, guid: 3aa74087a3a97e84a83c02e9a6fdf28c, type: 2}
 --- !u!135 &13596260

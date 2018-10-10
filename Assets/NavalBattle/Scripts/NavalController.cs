@@ -91,6 +91,19 @@ public class NavalController : MonoBehaviour {
 			Enemy enemy = go.GetComponent<Enemy>();
 			enemyList.Add(enemy);
 		}
+
+		// set each enemy's targets
+	    int idy = 105; //Random.Range (0, map.mapVerticalSize) * map.mapHorizontalSize + 4;
+		NavalTile targetTile = null;
+		if(map.ValidIDX(idy))
+		{
+			targetTile = map.grid[idy] as NavalTile;
+		}
+		List<MapNavNode> unitPath = map.Path<MapNavNode>(units[0].tile, targetTile, OnNodeCostCallback);
+		if(unitPath != null)
+		{
+			units[0].Move(unitPath, null);
+		}
 	}
 
 	void SpawnSoldiers () 
@@ -140,6 +153,8 @@ public class NavalController : MonoBehaviour {
 	#region update/ input
 
 	protected void Update () {
+
+
 		if (Input.GetMouseButtonDown (0) && GUIUtility.hotControl == 0 && unitMoving == false) {
 			// Check what the player clicked on. I've set Tiles to be on Layer 8 and Unit on Layer 9.
 			// Each tile has its own collider attached but I could have used a big invisible collider

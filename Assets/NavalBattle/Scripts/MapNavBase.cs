@@ -537,6 +537,7 @@ namespace MapNavKit
 
 			// first check if not direct neighbour and get out early
 			List<int> neighbors = PathNodeIndicesAround(start.idx); // NodeIndicesAround(start.idx, false, false, null);
+			Debug.Log(neighbors.Count);
 			if (neighbors != null)
 			{
 				if (neighbors.Contains(end.idx))
@@ -594,6 +595,7 @@ namespace MapNavKit
 				path.Add((T)grid[came_from[next]]);
 				next = came_from[next];
 			}
+			Debug.Log(path.Count);
 
 			if (path.Count > 0)
 			{

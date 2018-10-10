@@ -9,7 +9,6 @@ public class Projectile : MonoBehaviour {
 	void Start () {	}
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log(other.name);
         if (other.tag == "Enemy" || other.tag == "Tile") {
             if (explosionPrefab == null) {
                 return;

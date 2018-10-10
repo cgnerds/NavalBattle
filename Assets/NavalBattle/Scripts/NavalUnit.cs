@@ -73,7 +73,7 @@ public class NavalUnit : MonoBehaviour
 	{
 		if (path.Count == 0)
 		{
-			callback();
+			//** callback();
 			return;
 		}
 
@@ -110,7 +110,7 @@ public class NavalUnit : MonoBehaviour
 					// reached end of path. link with new tile and tell controller i am done
 					moving = false;
 					LinkWithTile(path[path.Count - 1] as NavalTile);
-					onMoveCompleted();
+					//** onMoveCompleted();
 					return;
 				}
 
