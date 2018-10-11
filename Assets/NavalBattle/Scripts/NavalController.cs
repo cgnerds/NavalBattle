@@ -105,7 +105,7 @@ public class NavalController : MonoBehaviour {
 			// 重新计时
 			spawnTimer = 2.0f;
 			// 如果鱼的数量达到最大数量则返回
-			if (curEnemyCount >= maxEnemyCount) {
+			if (curEnemyCount >= maxEnemyCount || enemyList.Count >= maxEnemyCount) {
 				return;
 			}
 			// 生成敌船
