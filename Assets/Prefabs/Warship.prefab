@@ -20,8 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4167111409206638}
   - component: {fileID: 65703776889123244}
-  - component: {fileID: 114471053474077266}
-  - component: {fileID: 114352902923577676}
+  - component: {fileID: 114184583345448356}
   m_Layer: 0
   m_Name: Warship
   m_TagString: Enemy
@@ -731,7 +730,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 4, z: 4}
   m_Center: {x: 1.4, y: 2, z: 3.05}
---- !u!114 &114352902923577676
+--- !u!114 &114184583345448356
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -742,21 +741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a32c6a8f761e7a458231705c3121708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  m_life: 15
-  m_maxlife: 15
-  lifebarFab: {fileID: 1991833703067014, guid: 0a11bfbce3974b246834c83c904cd290, type: 2}
---- !u!114 &114471053474077266
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1079098053098698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c3da139c9d6504dba1bfdc772c311d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  moveSpeed: 2
   m_life: 15
   m_maxlife: 15
   lifebarFab: {fileID: 1991833703067014, guid: 0a11bfbce3974b246834c83c904cd290, type: 2}

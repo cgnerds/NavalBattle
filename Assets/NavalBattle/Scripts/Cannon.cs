@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Tower : MonoBehaviour {
+public class Cannon : MonoBehaviour {
     // 攻击范围
     public float attackArea = 3.0f;
     // 攻击力
@@ -9,7 +9,7 @@ public class Tower : MonoBehaviour {
     // 攻击时间间隔
     public float attackInterval = 2.0f;
     // 目标敌人
-    protected NavalUnit targetEnemy;
+    protected EnemyUnit targetEnemy;
     // 是否已经面向敌人
     protected bool isFaceEnemy;
     // 炮口与炮弹
@@ -38,7 +38,7 @@ public class Tower : MonoBehaviour {
             return;
         targetEnemy = null;
         int minlife = 0; // 最低的生命值
-        foreach (NavalUnit enemy in NavalController.Instance.unitList) // 遍历敌人
+        foreach (EnemyUnit enemy in NavalController.Instance.enemyList) // 遍历敌人
         {
             if (enemy.m_life == 0)
                 continue;

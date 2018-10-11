@@ -7,18 +7,15 @@ using UnityEngine.SceneManagement;
 public class NavalController : MonoBehaviour {
 	// ------------------------------------------------------------------------------------------------------------
 	#region properties
-
 	public static NavalController Instance;
-
-	public GameObject enemyFab; // prefab of enemy
-
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
 	#region enemySpawn
+	public GameObject enemyFab; // 敌船预制件
 	public float spawnTimer = 0; // 生成计时器
 	public int maxEnemyCount = 6; // 最大生成数量
 	public int curEnemyCount = 0; // 当前敌船数量
-	public List<NavalUnit> unitList = new List<NavalUnit> (); // 船只列表
+	public List<EnemyUnit> enemyList = new List<EnemyUnit> (); // 船只列表
 
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
@@ -27,7 +24,7 @@ public class NavalController : MonoBehaviour {
 	protected MapNavBase map; // reference to the mapNav grid
 	protected LayerMask clickMask = (1 << 8 | 1 << 9); // in this sample layer 8 = tiles collider and layer 10 = unit's collider
 	// public List<Enemy> enemyList = new List<Enemy> (); // enemy list
-	protected NavalUnit activeUnit = null; // the currently selected unit
+	protected EnemyUnit activeUnit = null; // the currently selected unit
 	protected List<GameObject> moveMarkers = new List<GameObject> ();
 	protected List<NavalTile> validMoveNodes = new List<NavalTile> ();
 	protected bool unitMoving = false; // set when a unit is moving and no input should be accepted
@@ -69,19 +66,12 @@ public class NavalController : MonoBehaviour {
 		go.tag = "Enemy";
 
 		// be sure to tell the tile that this Unit is on it
-		NavalUnit unit = go.GetComponent<NavalUnit> ();
+		EnemyUnit unit = go.GetComponent<EnemyUnit> ();
 		unit.Resetunit (); // reset its moves now too
 		unit.LinkWithTile (sourceTile);
 		unit.OnDeath += OnDeath;
-		unitList.Add (unit); // keep a list of all enemies for quick access
+		enemyList.Add (unit); // keep a list of all enemies for quick access
 		
-
-		// 添加敌人
-		//Enemy enemy = go.GetComponent<Enemy> ();
-		//enemyList.Add (enemy);
-		// 注册鱼的死亡消息
-		//enemy.OnDeath += OnDeath;
-
 		// 设置敌船的随机目标
 		NavalTile targetTile = null;
 		while (true) {
@@ -179,12 +169,11 @@ public class NavalController : MonoBehaviour {
 		UpdateMoveMarkers ();
 	}
 
-	private void OnDeath (NavalUnit enemy) {
+	private void OnDeath (EnemyUnit enemy) {
 		// 更新敌船数量
 		curEnemyCount--;
 		// 将敌船从列表中删除
-		unitList.Remove(enemy);
-		//enemyList.Remove(enemy);
+		enemyList.Remove(enemy);
 	}
 
 	#endregion

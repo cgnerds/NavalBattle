@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using MapNavKit;
 
 
-public class NavalUnit : MonoBehaviour 
+public class EnemyUnit : MonoBehaviour 
 {
 	public float moveSpeed = 2.0f;
 
@@ -26,7 +26,7 @@ public class NavalUnit : MonoBehaviour
 	public int m_life = 15;
 	public int m_maxlife = 15;
 	// 鱼死亡回调
-	public delegate void EnemyDeathDelegate(NavalUnit enemy);
+	public delegate void EnemyDeathDelegate(EnemyUnit enemy);
 	public EnemyDeathDelegate OnDeath;
 	// 血条
 	public GameObject lifebarFab;
