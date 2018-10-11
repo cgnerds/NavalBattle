@@ -15,9 +15,15 @@ public class NavalController : MonoBehaviour {
 
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
-	#region runtime
+	#region enemySpawn
+	public float spawnTimer = 0; // 生成计时器
+	public int maxEnemyCount = 6; // 最大生成数量
+	public int curEnemyCount = 0; // 当前敌人数量
 
-	// these are set as protected and not private since Sample5Controller derives from Sample4Controller and might need them
+
+	#endregion
+	// ------------------------------------------------------------------------------------------------------------
+	#region runtime
 
 	protected MapNavBase map; // reference to the mapNav grid
 	protected LayerMask clickMask = (1 << 8 | 1 << 9); // in this sample layer 8 = tiles collider and layer 10 = unit's collider
@@ -26,7 +32,7 @@ public class NavalController : MonoBehaviour {
 	protected NavalUnit activeUnit = null; // the currently selected unit
 	protected List<GameObject> moveMarkers = new List<GameObject> ();
 	protected List<NavalTile> validMoveNodes = new List<NavalTile> ();
-	protected Rect winRect = new Rect (0, 0, 270, 500); // used by GUI
+	// protected Rect winRect = new Rect (0, 0, 270, 500); // used by GUI
 	protected bool unitMoving = false; // set when a unit is moving and no input should be accepted
 
 	#endregion
@@ -40,9 +46,6 @@ public class NavalController : MonoBehaviour {
 	protected void Start () {
 		// get reference to the mapnav map
 		map = GameObject.Find ("Map").GetComponent<NavalMap> ();
-
-		SpawnEnemies ();
-		// SpawnSoldiers();
 	}
 
 	void SpawnEnemies () {
@@ -155,6 +158,82 @@ public class NavalController : MonoBehaviour {
 	#region update/ input
 
 	protected void Update () {
+		spawnTimer -= Time.deltaTime;
+		if(spawnTimer <= 0)
+		{
+			// 重新计时
+			spawnTimer = 2.0f;
+			// 如果鱼的数量达到最大数量则返回
+			if(curEnemyCount >= maxEnemyCount)
+			{
+				return;
+			}
+
+			// 在六边形网格地图最右侧随机生成敌船
+			NavalTile sourceTile = null;
+
+			while (true) 
+			{
+				int idx = map.mapHorizontalSize*(map.mapVerticalSize-1) + Random.Range (0, map.mapHorizontalSize);
+				// make sure this is a valid node
+				if (map.ValidIDX (idx)) 
+				{
+					// now check if there is not already a unit on it
+					sourceTile = map.grid[idx] as NavalTile;
+					if (sourceTile.unit == null) 
+					{
+						// no unit on it, lets use it
+						break;
+					}
+				}
+			}
+
+			// create the unit and place it on the tile
+			GameObject go = (GameObject) Instantiate (enemyFab);
+			go.transform.position = sourceTile.position;
+			go.layer = 9; // Units must be in layer 9
+			go.tag = "Enemy";
+
+			// be sure to tell the tile that this Unit is on it
+			NavalUnit unit = go.GetComponent<NavalUnit> ();
+			unit.Resetunit (); // reset its moves now too
+			unit.LinkWithTile (sourceTile);
+			units.Add (unit); // keep a list of all enemies for quick access
+
+			// 添加敌人
+			Enemy enemy = go.GetComponent<Enemy> ();
+			enemyList.Add (enemy);
+			// 注册鱼的死亡消息
+			enemy.OnDeath += OnDeath; 
+
+			// 设置敌船的随机目标
+			NavalTile targetTile = null;
+			while(true)
+			{
+			    int idy = map.mapHorizontalSize*5 + Random.Range (0, map.mapHorizontalSize);
+			    // set each enemy's targets
+			    if (map.ValidIDX (idy))
+			    {
+				    targetTile = map.grid[idy] as NavalTile;
+					if(targetTile.target == false)
+					{
+						targetTile.target =true;
+	                    break;
+					}
+			    }
+			}
+
+			List<MapNavNode> unitPath = map.Path<MapNavNode> (sourceTile, targetTile, OnNodeCostCallback);
+			if (unitPath != null) 
+			{
+				unit.Move (unitPath, null);
+			}
+
+			// 更新敌人数量
+			curEnemyCount++;
+		}
+
+
 
 		if (Input.GetMouseButtonDown (0) && GUIUtility.hotControl == 0 && unitMoving == false) {
 			// Check what the player clicked on. I've set Tiles to be on Layer 8 and Unit on Layer 9.
@@ -259,6 +338,12 @@ public class NavalController : MonoBehaviour {
 	protected void OnUnitMoveComplete () {
 		unitMoving = false;
 		UpdateMoveMarkers ();
+	}
+
+	private void OnDeath(Enemy enemy)
+	{
+		// 更新敌船数量
+		curEnemyCount--;
 	}
 
 	#endregion

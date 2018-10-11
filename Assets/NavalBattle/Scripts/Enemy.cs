@@ -6,7 +6,10 @@ public class Enemy : MonoBehaviour {
 
 	public int m_life = 15;
 	public int m_maxlife = 15;
-	public System.Action<Enemy> OnDeath;
+	
+	// 鱼死亡回调
+	public delegate void EnemyDeathDelegate(Enemy enemy);
+	public EnemyDeathDelegate OnDeath;
 
 	// life bar
 	public GameObject lifebarFab;
@@ -37,6 +40,7 @@ public class Enemy : MonoBehaviour {
 		if(m_life <= 0)
 		{
 			m_life = 0;
+			OnDeath(this);
 			Destroy(this.gameObject);
 		}
 	}
