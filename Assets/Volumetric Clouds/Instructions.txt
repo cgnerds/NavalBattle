@@ -1,0 +1,30 @@
+CloudsToy  V1.0
+
+Just drag the CloudsToy Mngr prefab to scene or you can drag the ClodsToy script to a GameObject
+to start from scracth, in that case you must assign the textures of the clouds manually.
+
+The first variable "Maximun Clouds" create all the clouds that CloudsToy is gonna manage, they could be visible or invisible depending on the
+"Clouds Num" variable. So, one started the execution of Unity, DO NOT change this first variable, because it will crash for sure.
+Ideally, once you fine tune your clouds to fit your needs, the Maximun Clouds and the Clouds Num variables, should have the same value 
+(all the clouds you see, are all the clouds the system is managing).
+
+The Repaint Clouds button is used because not all actions in the editor are gonna change all the clouds in realtime mode,  it could be too slow, depending on 
+the number of clouds that CloudsToy is managing (visible or invisible), so if you wanna ensure you how actually the clouds looks like, hit the Repain button.
+
+Soft Clouds is used to make sunrise type of clouds, very large a soft, almost transparent.
+
+Be aware that depending on the numer of clouds, the type of render, the detail of the cloud (number of particles that any cloud has), and the size
+width, height and depth, the FPS of the system may goes down  dramatically. All this variables can be changed in the editor in realtime mode if you want.
+
+All the clouds can have their own shadow (configurable by the user), for that to work properly the clouds are stored in the 31th layer, that is
+reserved by this application for their pourposes (basically ignore proyector layer number 31), so you can go to the layers window in Unity and 
+rename if you want the 31th layer using any name of your choice (CloudsToy maybe?).
+
+That's basically all the important stuff you have to know. Play with the cloud system a little bit and you'll see how fun is it.
+(NOTE : With the appropiatte skyBox the clouds will look much better).
+
+Jocyf 2010.
+Jocyf@jocyf.com
+
+Please read de licencing terms in my webpage 
+http://www.jocyf.com/utilsEnglih.html

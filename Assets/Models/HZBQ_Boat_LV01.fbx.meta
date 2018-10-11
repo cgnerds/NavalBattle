@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: 9fc4c125b33d676449f9dff122bdd42a
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: HZBQ_TX_B:HZBQ_boat_mo_Grp
+    100004: HZBQ_TX_B:HZBQ_CHUAN_ceA
+    100006: HZBQ_TX_B:HZBQ_CHUAN_fan
+    100008: HZBQ_TX_B:HZBQ_CHUAN_JiaBan
+    100010: HZBQ_TX_B:HZBQ_CHUAN_shengzi
+    100012: HZBQ_TX_B:HZBQ_CHUAN_suo
+    100014: HZBQ_TX_B:HZBQ_CHUAN_weigan
+    100016: HZBQ_TX_B:HZBQ_hulan
+    100018: HZBQ_TX_B:HZBQ_mao
+    100020: HZBQ_TX_B:HZBQ_mutong0
+    400000: //RootNode
+    400002: HZBQ_TX_B:HZBQ_boat_mo_Grp
+    400004: HZBQ_TX_B:HZBQ_CHUAN_ceA
+    400006: HZBQ_TX_B:HZBQ_CHUAN_fan
+    400008: HZBQ_TX_B:HZBQ_CHUAN_JiaBan
+    400010: HZBQ_TX_B:HZBQ_CHUAN_shengzi
+    400012: HZBQ_TX_B:HZBQ_CHUAN_suo
+    400014: HZBQ_TX_B:HZBQ_CHUAN_weigan
+    400016: HZBQ_TX_B:HZBQ_hulan
+    400018: HZBQ_TX_B:HZBQ_mao
+    400020: HZBQ_TX_B:HZBQ_mutong0
+    2100000: HZBQ_TX_B_HZBQ_CHUAN_JiaBan2
+    2100002: HZBQ_TX_B_HZBQ_CHUAN_shengzi2
+    2100004: HZBQ_TX_B_HZBQ_CHUAN_ceA2
+    2100006: HZBQ_TX_B_HZBQ_CHUAN_fan0
+    2100008: HZBQ_TX_B_HZBQ_CHUAN_weigan0
+    2100010: HZBQ_TX_B_HZBQ_CHUAN_suo3
+    2100012: HZBQ_TX_B_HZBQ_mutong3
+    2100014: HZBQ_TX_B_HZBQ_mao2
+    2100016: HZBQ_TX_B_HZBQ_hulan2
+    2300000: HZBQ_TX_B:HZBQ_CHUAN_ceA
+    2300002: HZBQ_TX_B:HZBQ_CHUAN_fan
+    2300004: HZBQ_TX_B:HZBQ_CHUAN_JiaBan
+    2300006: HZBQ_TX_B:HZBQ_CHUAN_shengzi
+    2300008: HZBQ_TX_B:HZBQ_CHUAN_suo
+    2300010: HZBQ_TX_B:HZBQ_CHUAN_weigan
+    2300012: HZBQ_TX_B:HZBQ_hulan
+    2300014: HZBQ_TX_B:HZBQ_mao
+    2300016: HZBQ_TX_B:HZBQ_mutong0
+    3300000: HZBQ_TX_B:HZBQ_CHUAN_ceA
+    3300002: HZBQ_TX_B:HZBQ_CHUAN_fan
+    3300004: HZBQ_TX_B:HZBQ_CHUAN_JiaBan
+    3300006: HZBQ_TX_B:HZBQ_CHUAN_shengzi
+    3300008: HZBQ_TX_B:HZBQ_CHUAN_suo
+    3300010: HZBQ_TX_B:HZBQ_CHUAN_weigan
+    3300012: HZBQ_TX_B:HZBQ_hulan
+    3300014: HZBQ_TX_B:HZBQ_mao
+    3300016: HZBQ_TX_B:HZBQ_mutong0
+    4300000: HZBQ_TX_B:HZBQ_CHUAN_JiaBan
+    4300002: HZBQ_TX_B:HZBQ_CHUAN_shengzi
+    4300004: HZBQ_TX_B:HZBQ_CHUAN_ceA
+    4300006: HZBQ_TX_B:HZBQ_CHUAN_fan
+    4300008: HZBQ_TX_B:HZBQ_CHUAN_weigan
+    4300010: HZBQ_TX_B:HZBQ_CHUAN_suo
+    4300012: HZBQ_TX_B:HZBQ_mutong0
+    4300014: HZBQ_TX_B:HZBQ_mao
+    4300016: HZBQ_TX_B:HZBQ_hulan
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

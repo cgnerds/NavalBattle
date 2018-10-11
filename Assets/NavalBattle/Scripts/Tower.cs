@@ -62,7 +62,8 @@ public class Tower : MonoBehaviour {
     {
         if (targetEnemy == null)
         {
-            this.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+            this.transform.rotation = Quaternion.identity;
+            // this.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
             return;
         }
 
@@ -122,7 +123,7 @@ public class Tower : MonoBehaviour {
 
     private void FireProjectile() {
         GameObject bullet = Instantiate(projectile, muzzle.position, muzzle.rotation) as GameObject;
-        bullet.GetComponent<Rigidbody>().AddForce(muzzle.forward * 150);
+        bullet.GetComponent<Rigidbody>().AddForce(muzzle.forward * 700);
     }
 
     // private IEnumerator Fire() {

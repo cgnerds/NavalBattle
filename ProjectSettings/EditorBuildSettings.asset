@@ -4,32 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/MapNav2 Sample/Scenes/00_menu.unity
-    guid: 197794032920a0a4b9a0f9436d877f37
-  - enabled: 1
-    path: Assets/MapNav2 Sample/Scenes/01_hexa_tests.unity
-    guid: e8447915f92392d43938579853937d1d
-  - enabled: 1
-    path: Assets/MapNav2 Sample/Scenes/02_square_test.unity
-    guid: b54ab872d07b4564fb282ef5370ada70
-  - enabled: 1
-    path: Assets/MapNav2 Sample/Scenes/03_terrain.unity
-    guid: 1d2f80d6934f4bc40adbf646c052ba3b
-  - enabled: 1
-    path: Assets/MapNav2 Sample/Scenes/04_moving_units.unity
-    guid: 8b7c3b80dbf4cb5488b31f7e9b320ca1
-  - enabled: 1
-    path: Assets/MapNav2 Sample/Scenes/04b_moving_square.unity
-    guid: 4325687ab9a340d4a8cff67657672225
-  - enabled: 1
-    path: Assets/MapNav2 Sample/Scenes/05_borders.unity
-    guid: b911a6ee24289e84fa9c639b03c00a13
-  - enabled: 1
-    path: Assets/MapNav2 Sample/Scenes/06_nodelink_tool.unity
-    guid: db017613f2b454042992daf090880496
-  - enabled: 1
-    path: Assets/MapNav2 Sample/Scenes/07_move_units.unity
-    guid: 7909280db298c1449bfc678358192212
-  m_configObjects: {}
+  m_Scenes: []

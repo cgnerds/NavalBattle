@@ -1,0 +1,167 @@
+fileFormatVersion: 2
+guid: 4d4de30d5b1f6584dbe442b9b3b5f32b
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: HZBQ_chengqiang_1
+    100002: HZBQ_chengqiang_10
+    100004: HZBQ_chengqiang_11
+    100006: HZBQ_chengqiang_12
+    100008: HZBQ_chengqiang_13
+    100010: HZBQ_chengqiang_14
+    100012: HZBQ_chengqiang_2
+    100014: HZBQ_chengqiang_3
+    100016: HZBQ_chengqiang_4
+    100018: HZBQ_chengqiang_5
+    100020: HZBQ_chengqiang_6
+    100022: HZBQ_chengqiang_7
+    100024: HZBQ_chengqiang_8
+    100026: HZBQ_chengqiang_9
+    100028: //RootNode
+    400000: HZBQ_chengqiang_1
+    400002: HZBQ_chengqiang_10
+    400004: HZBQ_chengqiang_11
+    400006: HZBQ_chengqiang_12
+    400008: HZBQ_chengqiang_13
+    400010: HZBQ_chengqiang_14
+    400012: HZBQ_chengqiang_2
+    400014: HZBQ_chengqiang_3
+    400016: HZBQ_chengqiang_4
+    400018: HZBQ_chengqiang_5
+    400020: HZBQ_chengqiang_6
+    400022: HZBQ_chengqiang_7
+    400024: HZBQ_chengqiang_8
+    400026: HZBQ_chengqiang_9
+    400028: //RootNode
+    2100000: A1
+    2100002: A3
+    2100004: A4
+    2100006: A5
+    2100008: B2
+    2100010: B3
+    2100012: B4
+    2100014: lambert18
+    2100016: lambert19
+    2300000: HZBQ_chengqiang_1
+    2300002: HZBQ_chengqiang_10
+    2300004: HZBQ_chengqiang_11
+    2300006: HZBQ_chengqiang_12
+    2300008: HZBQ_chengqiang_13
+    2300010: HZBQ_chengqiang_14
+    2300012: HZBQ_chengqiang_2
+    2300014: HZBQ_chengqiang_3
+    2300016: HZBQ_chengqiang_4
+    2300018: HZBQ_chengqiang_5
+    2300020: HZBQ_chengqiang_6
+    2300022: HZBQ_chengqiang_7
+    2300024: HZBQ_chengqiang_8
+    2300026: HZBQ_chengqiang_9
+    3300000: HZBQ_chengqiang_1
+    3300002: HZBQ_chengqiang_10
+    3300004: HZBQ_chengqiang_11
+    3300006: HZBQ_chengqiang_12
+    3300008: HZBQ_chengqiang_13
+    3300010: HZBQ_chengqiang_14
+    3300012: HZBQ_chengqiang_2
+    3300014: HZBQ_chengqiang_3
+    3300016: HZBQ_chengqiang_4
+    3300018: HZBQ_chengqiang_5
+    3300020: HZBQ_chengqiang_6
+    3300022: HZBQ_chengqiang_7
+    3300024: HZBQ_chengqiang_8
+    3300026: HZBQ_chengqiang_9
+    4300000: HZBQ_chengqiang_1
+    4300002: HZBQ_chengqiang_2
+    4300004: HZBQ_chengqiang_3
+    4300006: HZBQ_chengqiang_4
+    4300008: HZBQ_chengqiang_5
+    4300010: HZBQ_chengqiang_6
+    4300012: HZBQ_chengqiang_7
+    4300014: HZBQ_chengqiang_8
+    4300016: HZBQ_chengqiang_9
+    4300018: HZBQ_chengqiang_10
+    4300020: HZBQ_chengqiang_11
+    4300022: HZBQ_chengqiang_12
+    4300024: HZBQ_chengqiang_13
+    4300026: HZBQ_chengqiang_14
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

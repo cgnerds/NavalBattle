@@ -47,7 +47,7 @@ public class NavalController : MonoBehaviour {
 
 	void SpawnEnemies () {
 		// spawn mapVerticalSize/2 units on random locations of the map's right side
-		int unitNum = (int) (map.mapVerticalSize / 2);
+		int unitNum = 5; // (int) (map.mapVerticalSize / 4);
 
 		for (int i = 0; i < unitNum; i++) {
 			NavalTile selectedTile = null;
@@ -56,8 +56,7 @@ public class NavalController : MonoBehaviour {
 			// but I need to check if there is not already a unit on the 
 			// selected tile before accepting it.
 			while (true) {
-				int idx = Random.Range (1, map.mapVerticalSize) * map.mapHorizontalSize - 1;
-
+				int idx = map.mapHorizontalSize*(map.mapVerticalSize-1) + Random.Range (0, map.mapHorizontalSize);
 				// make sure this is a valid node
 				if (map.ValidIDX (idx)) {
 					// now check if there is not already a unit on it
@@ -91,7 +90,7 @@ public class NavalController : MonoBehaviour {
 			NavalTile targetTile = null;
 			while(true)
 			{
-			    int idy = Random.Range (0, map.mapVerticalSize) * map.mapHorizontalSize + 4;
+			    int idy = map.mapHorizontalSize*5 + Random.Range (0, map.mapHorizontalSize);
 			    // set each enemy's targets
 			    if (map.ValidIDX (idy))
 			    {
