@@ -71,7 +71,7 @@ public class NavalController : MonoBehaviour {
 		unit.LinkWithTile (sourceTile);
 		unit.OnDeath += OnDeath;
 		enemyList.Add (unit); // keep a list of all enemies for quick access
-		
+
 		// 设置敌船的随机目标
 		NavalTile targetTile = null;
 		while (true) {
@@ -109,7 +109,7 @@ public class NavalController : MonoBehaviour {
 				return;
 			}
 			// 生成敌船
-			SpawnEnemy();
+			SpawnEnemy ();
 		}
 	}
 
@@ -173,7 +173,7 @@ public class NavalController : MonoBehaviour {
 		// 更新敌船数量
 		curEnemyCount--;
 		// 将敌船从列表中删除
-		enemyList.Remove(enemy);
+		enemyList.Remove (enemy);
 	}
 
 	#endregion

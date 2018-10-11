@@ -57,6 +57,11 @@ public class EnemyUnit : MonoBehaviour
 		{
 			m_life = 0;
 			OnDeath(this);
+			// 取消敌船与地图网格的关联
+			LinkWithTile(null);
+			NavalTile last = path[path.Count - 1] as NavalTile;
+			last.target = false;
+
 			Destroy(this.gameObject);
 		}
 	}
