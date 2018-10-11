@@ -9,7 +9,7 @@ public class Defender : MonoBehaviour {
     // 攻击时间间隔
     public float attackInterval = 1.0f;
     // 目标敌人
-    protected Enemy targetEnemy;
+    protected NavalUnit targetEnemy;
     // 是否已经面向敌人
     protected bool isFaceEnemy;
     protected Animator animator;
@@ -59,7 +59,7 @@ public class Defender : MonoBehaviour {
             return;
         targetEnemy = null;
         int minlife = 0; // 最低的生命值
-        foreach (Enemy enemy in NavalController.Instance.enemyList) // 遍历敌人
+        foreach (NavalUnit enemy in NavalController.Instance.unitList) // 遍历敌人
         {
             // Debug.Log(enemy.name);
 

@@ -22,7 +22,44 @@ public class NavalUnit : MonoBehaviour
 	private float journeyLength;
 	private float startTime;
 
+	// 生命值
+	public int m_life = 15;
+	public int m_maxlife = 15;
+	// 鱼死亡回调
+	public delegate void EnemyDeathDelegate(NavalUnit enemy);
+	public EnemyDeathDelegate OnDeath;
+	// 血条
+	public GameObject lifebarFab;
+	private Transform lifebarObj;
+	private UnityEngine.UI.Slider lifebarSlider;
+
 	// ------------------------------------------------------------------------------------------------------------
+	private void Start() {
+	    lifebarObj = ((GameObject)Instantiate(lifebarFab, Vector3.zero, Camera.main.transform.rotation, this.transform)).transform;
+		lifebarObj.localPosition = new Vector3(0, 1.25f, 0);
+		lifebarObj.localScale = new Vector3(0.015f, 0.015f, 0.015f);
+		lifebarSlider = lifebarObj.GetComponentInChildren<UnityEngine.UI.Slider>();
+		StartCoroutine(UpdateLifebar());		
+	}
+
+	IEnumerator UpdateLifebar()
+	{
+		lifebarSlider.value = (float)m_life/(float)m_maxlife;
+		lifebarObj.transform.eulerAngles = Camera.main.transform.eulerAngles;
+		yield return 0;
+		StartCoroutine(UpdateLifebar());		
+	}
+
+	public void SetDamage(int damage)
+	{
+		m_life -= damage;
+		if(m_life <= 0)
+		{
+			m_life = 0;
+			OnDeath(this);
+			Destroy(this.gameObject);
+		}
+	}
 
 	/// <summary>
 	/// Call this at "end of turn" to reset the unit, like how many moves it got left

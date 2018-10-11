@@ -743,6 +743,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  m_life: 15
+  m_maxlife: 15
+  lifebarFab: {fileID: 1991833703067014, guid: 0a11bfbce3974b246834c83c904cd290, type: 2}
 --- !u!114 &114471053474077266
 MonoBehaviour:
   m_ObjectHideFlags: 1

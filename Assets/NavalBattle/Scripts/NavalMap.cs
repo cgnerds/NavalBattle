@@ -18,12 +18,6 @@ public class NavalMap : MapNavHexa
 
 	protected void Start()
 	{
-		Vector3 p = Vector3.zero;
-		int x = (int)(mapHorizontalSize / 2);
-		int y = (int)(mapVerticalSize / 2);
-		MapNavNode n = NodeAt<MapNavNode>(x, y);
-		if (n != null) p = n.position;
-		Camera.main.GetComponent<CameraController>().Refocus(p);
 	}
 
 	/// <summary>
