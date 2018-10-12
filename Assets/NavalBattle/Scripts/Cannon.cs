@@ -28,7 +28,7 @@ public class Cannon : MonoBehaviour {
     private void Update() {
         FindEnemy();
         RotateTo();
-        Attack();
+        // Attack();
     }
 
     // 查找目标敌人
