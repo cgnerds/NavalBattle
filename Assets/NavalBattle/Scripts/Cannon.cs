@@ -123,7 +123,7 @@ public class Cannon : MonoBehaviour {
 
     private void FireProjectile() {
         GameObject bullet = Instantiate(projectile, muzzle.position, muzzle.rotation) as GameObject;
-        bullet.GetComponent<Rigidbody>().AddForce(muzzle.forward * 700);
+        bullet.GetComponent<Rigidbody>().AddForce(muzzle.forward * 750.0f);
     }
 
     // private IEnumerator Fire() {

@@ -14,7 +14,8 @@ public class NavalController : MonoBehaviour {
 	public GameObject enemyFab; // 敌船预制件
 	public float spawnTimer = 0; // 生成计时器
 	public int maxEnemyCount = 6; // 最大生成数量
-	public int curEnemyCount = 0; // 当前敌船数量
+	private int curEnemyCount = 0; // 当前敌船数量
+	[HideInInspector]
 	public List<EnemyUnit> enemyList = new List<EnemyUnit> (); // 船只列表
 
 	#endregion
@@ -23,11 +24,6 @@ public class NavalController : MonoBehaviour {
 
 	protected MapNavBase map; // reference to the mapNav grid
 	protected LayerMask clickMask = (1 << 8 | 1 << 9); // in this sample layer 8 = tiles collider and layer 10 = unit's collider
-	// public List<Enemy> enemyList = new List<Enemy> (); // enemy list
-	protected EnemyUnit activeUnit = null; // the currently selected unit
-	protected List<GameObject> moveMarkers = new List<GameObject> ();
-	protected List<NavalTile> validMoveNodes = new List<NavalTile> ();
-	protected bool unitMoving = false; // set when a unit is moving and no input should be accepted
 
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
@@ -40,6 +36,42 @@ public class NavalController : MonoBehaviour {
 	protected void Start () {
 		// get reference to the mapnav map
 		map = GameObject.Find ("Map").GetComponent<NavalMap> ();
+	}
+	#endregion
+	// ------------------------------------------------------------------------------------------------------------
+	#region update/ input
+
+	protected void Update () {
+		spawnTimer -= Time.deltaTime;
+		// 按Esc键退出
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			Application.Quit ();
+		}
+		// 鼠标左键攻击敌船
+		if(Input.GetMouseButtonDown(0))
+		{
+			RaycastHit hit;
+			Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+			if(Physics.Raycast(r, out hit, Mathf.Infinity, clickMask))
+			{
+				if(hit.transform.gameObject.layer == 9)
+				{
+					EnemyUnit unit = hit.transform.GetComponent<EnemyUnit>();
+					unit.SetDamage(1);
+				}
+			}
+		}
+
+		if (spawnTimer <= 0) {
+			// 重新计时
+			spawnTimer = 2.0f;
+			// 如果敌船的数量达到最大数量则返回
+			if (curEnemyCount >= maxEnemyCount || enemyList.Count >= maxEnemyCount) {
+				return;
+			}
+			// 生成敌船
+			SpawnEnemy ();
+		}
 	}
 
 	void SpawnEnemy () {
@@ -97,54 +129,6 @@ public class NavalController : MonoBehaviour {
 
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
-	#region update/ input
-
-	protected void Update () {
-		spawnTimer -= Time.deltaTime;
-		if (spawnTimer <= 0) {
-			// 重新计时
-			spawnTimer = 2.0f;
-			// 如果鱼的数量达到最大数量则返回
-			if (curEnemyCount >= maxEnemyCount || enemyList.Count >= maxEnemyCount) {
-				return;
-			}
-			// 生成敌船
-			SpawnEnemy ();
-		}
-	}
-
-	protected virtual void ClearMoveMarkers () {
-		for (int i = 0; i < moveMarkers.Count; i++) {
-			moveMarkers[i].GetComponent<Renderer> ().material.color = Color.white;
-		}
-
-		validMoveNodes.Clear ();
-		moveMarkers.Clear ();
-	}
-
-	protected virtual void UpdateMoveMarkers () {
-		// do not bother to do anything if the unit got no moves left
-		if (activeUnit.movesLeft == 0) return;
-
-		// in this example I will simply change the colour of the whole tile.
-		// You could use textured planes or projectors for your markers.
-
-		// first find out which nodes the unit could move to and keep that 
-		// list around to later use when checking what tile the player click
-		validMoveNodes = map.NodesAround<NavalTile> (activeUnit.tile, activeUnit.movesLeft, OnNodeCostCallback);
-
-		// now show the nodes that can be moved to
-		for (int i = 0; i < validMoveNodes.Count; i++) {
-			// you could simply update the position of planes/ projectors but I want to update the 
-			// actual tile object; luckily I saved a reference to it.
-			GameObject go = validMoveNodes[i].tileObj;
-			go.GetComponent<Renderer> ().material.color = Color.green;
-			moveMarkers.Add (go);
-		}
-	}
-
-	#endregion
-	// ------------------------------------------------------------------------------------------------------------
 	#region callbacks
 
 	/// <summary>
@@ -161,22 +145,12 @@ public class NavalController : MonoBehaviour {
 		return 1f;
 	}
 
-	/// <summary>
-	/// Called by the unit when it is done moving
-	/// </summary>
-	protected void OnUnitMoveComplete () {
-		unitMoving = false;
-		UpdateMoveMarkers ();
-	}
-
 	private void OnDeath (EnemyUnit enemy) {
 		// 更新敌船数量
 		curEnemyCount--;
 		// 将敌船从列表中删除
 		enemyList.Remove (enemy);
 	}
-
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
-
 }
