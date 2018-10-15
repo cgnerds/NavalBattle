@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MapNavKit;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Text.RegularExpressions;
 
 public class NavalController : MonoBehaviour {
 	// ------------------------------------------------------------------------------------------------------------
@@ -49,8 +50,32 @@ public class NavalController : MonoBehaviour {
 		}
 
 		// 接收触控墙程序发送的字符串
-		// 鼠标左键攻击敌船
-		if(Input.GetMouseButtonDown(0))
+		string recvStr = Camera.main.GetComponent<TcpServer>().recvStr;
+		// 获取触控墙坐标，mousePosition[0]为触控点数量，mousePosition[1]和mousePosition[2]分别为第一个点的x轴坐标和y坐标，依此类推
+		List<float> touchPosition = new List<float>();
+		foreach (Match m in Regex.Matches(recvStr, @"\d+"))
+            touchPosition.Add(float.Parse(m.Value));
+		
+		// 触控墙攻击敌船
+		if(touchPosition.Count >= 3)
+		{
+			for(int i = 0; i < touchPosition[0]; i += 1)
+			{
+				// 触控墙坐标范围默认为1920*1080，需要根据Unity实际分辨率进行缩放                
+				Ray ray = Camera.main.ScreenPointToRay(new Vector3(touchPosition[i * 2 + 1] * Screen.width / 1920.0f, 
+				                                                   touchPosition[i * 2 + 2] * Screen.height / 1080.0f, 0));
+				RaycastHit hit;
+				if(Physics.Raycast(ray, out hit, Mathf.Infinity, clickMask))
+				{
+					if(hit.transform.gameObject.layer == 9)
+				    {
+					    EnemyUnit unit = hit.transform.GetComponent<EnemyUnit>();
+					    unit.SetDamage(1);
+				    }
+				}
+			}
+		}
+		else if(Input.GetMouseButtonDown(0)) // 否则，鼠标左键攻击敌船
 		{
 			RaycastHit hit;
 			Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
