@@ -47,6 +47,8 @@ public class NavalController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			Application.Quit ();
 		}
+
+		// 接收触控墙程序发送的字符串
 		// 鼠标左键攻击敌船
 		if(Input.GetMouseButtonDown(0))
 		{
