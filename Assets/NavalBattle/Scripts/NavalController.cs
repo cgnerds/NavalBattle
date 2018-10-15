@@ -9,6 +9,8 @@ public class NavalController : MonoBehaviour {
 	// ------------------------------------------------------------------------------------------------------------
 	#region properties
 	public static NavalController Instance;
+	private int baseLife = 10000; // 基地生命值
+	public UnityEngine.UI.Text  baseLifeUI = null;
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
 	#region enemySpawn
@@ -154,6 +156,16 @@ public class NavalController : MonoBehaviour {
 		curEnemyCount++;
 	}
 
+
+	public void SetDamage(int damage)
+	{
+		baseLife -= damage;
+		if(baseLife <= 0)
+		{
+			baseLife = 10000;
+		}
+	    baseLifeUI.text = string.Format("生命: <color=yellow>{0}</color>", baseLife);
+	}
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
 	#region callbacks

@@ -108,8 +108,10 @@ public class EnemyUnit : MonoBehaviour {
 	IEnumerator AttackWall () {
 		if (weapon) {
 			weapon.LaunchWeapon ();
+		    yield return new WaitForSeconds (attackInterval*0.5f); // 间隔一定时间
+			NavalController.Instance.SetDamage(1);
 		}
-		yield return new WaitForSeconds (attackInterval); // 间隔一定时间
+		yield return new WaitForSeconds (attackInterval*0.5f); // 间隔一定时间
 
 		StartCoroutine (AttackWall ()); // 下一轮攻击
 	}
