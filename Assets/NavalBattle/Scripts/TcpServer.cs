@@ -46,15 +46,15 @@ public class TcpServer : MonoBehaviour {
             clientSocket.Close();
 
         //控制台输出侦听状态  
-        print("Waiting for a client");
+        print("----Waiting for a client----");
         //一旦接受连接，创建一个客户端  
         clientSocket = serverSocket.Accept();
         //获取客户端的IP和端口  
         IPEndPoint ipEndClient = (IPEndPoint)clientSocket.RemoteEndPoint;
         //输出客户端的IP和端口  
-        print("Connect with " + ipEndClient.Address.ToString() + ":" + ipEndClient.Port.ToString());
+        print("----Connect with " + ipEndClient.Address.ToString() + ":" + ipEndClient.Port.ToString() + "----");
         //连接成功则发送数据  
-        sendStr = "Welcome to Unity server";
+        sendStr = "----Welcome to the Unity server----";
         SocketSend(sendStr);
     }
 
