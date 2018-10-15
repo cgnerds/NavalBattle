@@ -15,12 +15,15 @@ public class TcpServer : MonoBehaviour {
     Socket serverSocket; //服务器端socket
     Socket clientSocket; //客户端socket
     IPEndPoint ipEnd;    //侦听端口
-    public string recvStr; //接收的字符串  
+    [HideInInspector]
+    public string recvStr; //接收的字符串 
+    [HideInInspector]
     public string sendStr; //发送的字符串  
     byte[] recvData = new byte[1024]; //接收的数据，必须为字节  
     byte[] sendData = new byte[1024]; //发送的数据，必须为字节  
     int recvLen; //接收的数据长度  
     Thread connectThread; //连接线程 
+    [HideInInspector]
     public List<int> list = new List<int>(); //触控墙坐标
 
     //初始化  
