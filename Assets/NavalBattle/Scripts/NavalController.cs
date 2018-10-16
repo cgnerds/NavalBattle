@@ -4,6 +4,7 @@ using MapNavKit;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 public class NavalController : MonoBehaviour {
 	// ------------------------------------------------------------------------------------------------------------
@@ -35,10 +36,19 @@ public class NavalController : MonoBehaviour {
 	private void Awake () {
 		Instance = this;
 	}
+	
+	IEnumerator startTouchWall()
+	{
+		yield return new WaitForSeconds(3.0f);
+		// 开启触控墙
+		Process.Start("touch.exe");
+		yield return new WaitForSeconds(1.0f);
+	}
 
 	protected void Start () {
 		// get reference to the mapnav map
 		map = GameObject.Find ("Map").GetComponent<NavalMap> ();
+		StartCoroutine(startTouchWall());
 	}
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
