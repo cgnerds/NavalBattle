@@ -34,6 +34,8 @@ public class EnemyUnit : MonoBehaviour {
 	// 敌船导弹系统
 	public WeaponController weapon;
 	private float attackInterval = 2.0f;
+	private float damageTimer = 1.0f;
+	private bool canDamage = false;
 
 	// ------------------------------------------------------------------------------------------------------------
 	private void Start () {
@@ -54,7 +56,10 @@ public class EnemyUnit : MonoBehaviour {
 	}
 
 	public void SetDamage (int damage) {
-		m_life -= damage;
+		if (canDamage) {
+			m_life -= damage;
+			canDamage = false;
+		}
 		if (m_life <= 0) {
 			m_life = 0;
 			OnDeath (this);
@@ -108,10 +113,10 @@ public class EnemyUnit : MonoBehaviour {
 	IEnumerator AttackWall () {
 		if (weapon) {
 			weapon.LaunchWeapon ();
-		    yield return new WaitForSeconds (attackInterval*0.5f); // 间隔一定时间
-			NavalController.Instance.SetDamage(1);
+			yield return new WaitForSeconds (attackInterval * 0.5f); // 间隔一定时间
+			NavalController.Instance.SetDamage (1);
 		}
-		yield return new WaitForSeconds (attackInterval*0.5f); // 间隔一定时间
+		yield return new WaitForSeconds (attackInterval * 0.5f); // 间隔一定时间
 
 		StartCoroutine (AttackWall ()); // 下一轮攻击
 	}
@@ -148,6 +153,13 @@ public class EnemyUnit : MonoBehaviour {
 			if (weapon) {
 				weapon.LaunchWeapon ();
 			}
+		}
+
+        // 控制敌船受伤频率
+		damageTimer -= Time.deltaTime;
+		if(damageTimer <= 0) {
+			damageTimer = 1.0f;
+			canDamage = true;
 		}
 
 		if (moving) {

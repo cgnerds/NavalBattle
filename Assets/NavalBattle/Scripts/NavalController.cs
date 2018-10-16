@@ -59,7 +59,7 @@ public class NavalController : MonoBehaviour {
             touchPosition.Add(float.Parse(m.Value));
 		
 		// 触控墙攻击敌船
-		if(touchPosition.Count >= 3)
+		if(touchPosition.Count >= 1)
 		{
 			for(int i = 0; i < touchPosition[0]; i += 1)
 			{
