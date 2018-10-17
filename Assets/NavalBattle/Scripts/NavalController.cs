@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
 using MapNavKit;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Text.RegularExpressions;
-using System.Diagnostics;
 
 public class NavalController : MonoBehaviour {
 	// ------------------------------------------------------------------------------------------------------------
 	#region properties
 	public static NavalController Instance;
 	private int baseLife = 10000; // 基地生命值
-	public UnityEngine.UI.Text  baseLifeUI = null;
+	public UnityEngine.UI.Text baseLifeUI = null;
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
 	#region enemySpawn
@@ -36,19 +36,25 @@ public class NavalController : MonoBehaviour {
 	private void Awake () {
 		Instance = this;
 	}
-	
-	IEnumerator startTouchWall()
-	{
-		yield return new WaitForSeconds(3.0f);
+
+	IEnumerator startTouchWall () {
+		yield return new WaitForSeconds (3.0f);
 		// 开启触控墙
-		Process.Start("touch.exe");
-		yield return new WaitForSeconds(1.0f);
+		Process.Start ("touch.exe");
+		yield return new WaitForSeconds (1.0f);
 	}
 
 	protected void Start () {
 		// get reference to the mapnav map
 		map = GameObject.Find ("Map").GetComponent<NavalMap> ();
-		StartCoroutine(startTouchWall());
+		// 在Unity编辑器内运行时，不再运行触控墙程序
+#if UNITY_EDITOR
+		return;
+#endif
+#if UNITY_STANDALONE_WIN
+		StartCoroutine (startTouchWall ());
+#endif
+
 	}
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
@@ -62,41 +68,34 @@ public class NavalController : MonoBehaviour {
 		}
 
 		// 接收触控墙程序发送的字符串
-		string recvStr = Camera.main.GetComponent<TcpServer>().recvStr;
+		string recvStr = Camera.main.GetComponent<TcpServer> ().recvStr;
 		// 获取触控墙坐标，mousePosition[0]为触控点数量，mousePosition[1]和mousePosition[2]分别为第一个点的x轴坐标和y坐标，依此类推
-		List<float> touchPosition = new List<float>();
-		foreach (Match m in Regex.Matches(recvStr, @"\d+"))
-            touchPosition.Add(float.Parse(m.Value));
-		
+		List<float> touchPosition = new List<float> ();
+		foreach (Match m in Regex.Matches (recvStr, @"\d+"))
+			touchPosition.Add (float.Parse (m.Value));
+
 		// 触控墙攻击敌船
-		if(touchPosition.Count >= 1)
-		{
-			for(int i = 0; i < touchPosition[0]; i += 1)
-			{
+		if (touchPosition.Count >= 1) {
+			for (int i = 0; i < touchPosition[0]; i += 1) {
 				// 触控墙坐标范围默认为1920*1080，需要根据Unity实际分辨率进行缩放                
-				Ray ray = Camera.main.ScreenPointToRay(new Vector3(touchPosition[i * 2 + 1] * Screen.width / 1920.0f, 
-				                                                   touchPosition[i * 2 + 2] * Screen.height / 1080.0f, 0));
+				Ray ray = Camera.main.ScreenPointToRay (new Vector3 (touchPosition[i * 2 + 1] * Screen.width / 1920.0f,
+					touchPosition[i * 2 + 2] * Screen.height / 1080.0f, 0));
 				RaycastHit hit;
-				if(Physics.Raycast(ray, out hit, Mathf.Infinity, clickMask))
-				{
-					if(hit.transform.gameObject.layer == 9)
-				    {
-					    EnemyUnit unit = hit.transform.GetComponent<EnemyUnit>();
-					    unit.SetDamage(1);
-				    }
+				if (Physics.Raycast (ray, out hit, Mathf.Infinity, clickMask)) {
+					if (hit.transform.gameObject.layer == 9) {
+						EnemyUnit unit = hit.transform.GetComponent<EnemyUnit> ();
+						unit.SetDamage (1);
+					}
 				}
 			}
-		}
-		else if(Input.GetMouseButtonDown(0)) // 否则，鼠标左键攻击敌船
+		} else if (Input.GetMouseButtonDown (0)) // 否则，鼠标左键攻击敌船
 		{
 			RaycastHit hit;
-			Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
-			if(Physics.Raycast(r, out hit, Mathf.Infinity, clickMask))
-			{
-				if(hit.transform.gameObject.layer == 9)
-				{
-					EnemyUnit unit = hit.transform.GetComponent<EnemyUnit>();
-					unit.SetDamage(1);
+			Ray r = Camera.main.ScreenPointToRay (Input.mousePosition);
+			if (Physics.Raycast (r, out hit, Mathf.Infinity, clickMask)) {
+				if (hit.transform.gameObject.layer == 9) {
+					EnemyUnit unit = hit.transform.GetComponent<EnemyUnit> ();
+					unit.SetDamage (1);
 				}
 			}
 		}
@@ -166,15 +165,12 @@ public class NavalController : MonoBehaviour {
 		curEnemyCount++;
 	}
 
-
-	public void SetDamage(int damage)
-	{
+	public void SetDamage (int damage) {
 		baseLife -= damage;
-		if(baseLife <= 0)
-		{
+		if (baseLife <= 0) {
 			baseLife = 10000;
 		}
-	    baseLifeUI.text = string.Format("生命: <color=yellow>{0}</color>", baseLife);
+		baseLifeUI.text = string.Format ("生命: <color=yellow>{0}</color>", baseLife);
 	}
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
