@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9fc4c125b33d676449f9dff122bdd42a
+guid: a5ece90c6e409a14db7d921de815e1ec
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -62,12 +62,57 @@ ModelImporter:
     4300014: HZBQ_TX_B:HZBQ_mao
     4300016: HZBQ_TX_B:HZBQ_hulan
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HZBQ_TX_B_HZBQ_CHUAN_JiaBan2
+    second: {fileID: 2100000, guid: a092fcad1ea74694baec1632ea8b1cd5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HZBQ_TX_B_HZBQ_CHUAN_ceA2
+    second: {fileID: 2100000, guid: 933cd752a05759e4599718cee5e3d4d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HZBQ_TX_B_HZBQ_CHUAN_fan0
+    second: {fileID: 2100000, guid: 05fd6f26eadb93d4f8d3b8eab993f1a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HZBQ_TX_B_HZBQ_CHUAN_shengzi2
+    second: {fileID: 2100000, guid: 25ba688867b6efb45bee6d3f783f73cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HZBQ_TX_B_HZBQ_CHUAN_suo3
+    second: {fileID: 2100000, guid: 1b21bf47432698d4db54b5554c0bfd09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HZBQ_TX_B_HZBQ_CHUAN_weigan0
+    second: {fileID: 2100000, guid: b92d105154c249f498c4988e738d7007, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HZBQ_TX_B_HZBQ_hulan2
+    second: {fileID: 2100000, guid: 2f9d39576db231a4e82791e3e5345b93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HZBQ_TX_B_HZBQ_mao2
+    second: {fileID: 2100000, guid: 01971207aad7a4048b43936fa70eb316, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HZBQ_TX_B_HZBQ_mutong3
+    second: {fileID: 2100000, guid: 94dbc6a5eec4e1a408a60237a1bdd39e, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
