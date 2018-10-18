@@ -36,6 +36,8 @@ public class EnemyUnit : MonoBehaviour {
 	private float attackInterval = 2.0f;
 	private float damageTimer = 1.0f;
 	private bool canDamage = false;
+	// 物体材质
+	public GameObject ShipMesh;
 
 	// ------------------------------------------------------------------------------------------------------------
 	private void Start () {
@@ -46,6 +48,7 @@ public class EnemyUnit : MonoBehaviour {
 		StartCoroutine (UpdateLifebar ());
 		// 敌船导弹系统
 		weapon = this.transform.GetComponent<WeaponController> ();
+
 	}
 
 	IEnumerator UpdateLifebar () {
@@ -59,6 +62,7 @@ public class EnemyUnit : MonoBehaviour {
 		if (canDamage) {
 			m_life -= damage;
 			canDamage = false;
+			StartCoroutine (ChangeColor ());
 		}
 		if (m_life <= 0) {
 			m_life = 0;
@@ -69,6 +73,18 @@ public class EnemyUnit : MonoBehaviour {
 			last.target = false;
 
 			Destroy (this.gameObject);
+		}
+	}
+
+	IEnumerator ChangeColor () {
+		// 物体材质
+		foreach (MeshRenderer part in ShipMesh.GetComponentsInChildren<MeshRenderer> ()) {
+			part.GetComponent<Renderer> ().material.color = Color.red;
+		}
+		yield return new WaitForSeconds (0.1f);
+		// 物体材质
+		foreach (MeshRenderer part in ShipMesh.GetComponentsInChildren<MeshRenderer> ()) {
+			part.GetComponent<Renderer> ().material.color = Color.white;
 		}
 	}
 
@@ -155,9 +171,9 @@ public class EnemyUnit : MonoBehaviour {
 			}
 		}
 
-        // 控制敌船受伤频率
+		// 控制敌船受伤频率
 		damageTimer -= Time.deltaTime;
-		if(damageTimer <= 0) {
+		if (damageTimer <= 0) {
 			damageTimer = 1.0f;
 			canDamage = true;
 		}
