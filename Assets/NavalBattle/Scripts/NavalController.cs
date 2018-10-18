@@ -38,10 +38,12 @@ public class NavalController : MonoBehaviour {
 	}
 
 	IEnumerator startTouchWall () {
-		yield return new WaitForSeconds (3.0f);
+		yield return new WaitForSeconds (0.5f);
 		// 开启触控墙
 		Process.Start ("touch.exe");
-		yield return new WaitForSeconds (1.0f);
+		yield return new WaitForSeconds (0.5f);
+	    // 开启捕捉窗口程序   
+		Process.Start ("WinCapture.exe");
 	}
 
 	protected void Start () {

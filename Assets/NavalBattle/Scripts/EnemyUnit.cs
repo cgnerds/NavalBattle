@@ -22,8 +22,8 @@ public class EnemyUnit : MonoBehaviour {
 	private OnMoveCompleted onMoveCompleted = null;
 
 	// 生命值
-	public int m_life = 15;
-	public int m_maxlife = 15;
+	public int m_life = 20;
+	public int m_maxlife = 20;
 	// 鱼死亡回调
 	public delegate void EnemyDeathDelegate (EnemyUnit enemy);
 	public EnemyDeathDelegate OnDeath;
@@ -44,7 +44,7 @@ public class EnemyUnit : MonoBehaviour {
 	// ------------------------------------------------------------------------------------------------------------
 	private void Start () {
 		lifebarObj = ((GameObject) Instantiate (lifebarFab, Vector3.zero, Camera.main.transform.rotation, this.transform)).transform;
-		lifebarObj.localPosition = new Vector3 (0, 1.25f, 0);
+		lifebarObj.localPosition = new Vector3 (-1.5f, 4.0f, -3.5f);
 		lifebarObj.localScale = new Vector3 (0.015f, 0.015f, 0.015f);
 		lifebarSlider = lifebarObj.GetComponentInChildren<UnityEngine.UI.Slider> ();
 		StartCoroutine (UpdateLifebar ());
