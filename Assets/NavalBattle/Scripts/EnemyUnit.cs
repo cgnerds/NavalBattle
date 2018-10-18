@@ -36,8 +36,10 @@ public class EnemyUnit : MonoBehaviour {
 	private float attackInterval = 2.0f;
 	private float damageTimer = 1.0f;
 	private bool canDamage = false;
-	// 物体材质
+	// 受到攻击后材质变色并发声
 	public GameObject ShipMesh;
+	public AudioSource audioSource;
+	public AudioClip attaked;
 
 	// ------------------------------------------------------------------------------------------------------------
 	private void Start () {
@@ -48,7 +50,13 @@ public class EnemyUnit : MonoBehaviour {
 		StartCoroutine (UpdateLifebar ());
 		// 敌船导弹系统
 		weapon = this.transform.GetComponent<WeaponController> ();
-
+		// 声音
+		if (!audioSource) {
+			audioSource = this.GetComponent<AudioSource> ();
+			if (!audioSource) {
+				this.gameObject.AddComponent<AudioSource> ();
+			}
+		}
 	}
 
 	IEnumerator UpdateLifebar () {
@@ -77,12 +85,16 @@ public class EnemyUnit : MonoBehaviour {
 	}
 
 	IEnumerator ChangeColor () {
-		// 物体材质
+		if (audioSource) {
+			audioSource.PlayOneShot (attaked);
+		}
+
+		// 敌船变红色
 		foreach (MeshRenderer part in ShipMesh.GetComponentsInChildren<MeshRenderer> ()) {
 			part.GetComponent<Renderer> ().material.color = Color.red;
 		}
 		yield return new WaitForSeconds (0.1f);
-		// 物体材质
+		// 敌船恢复颜色
 		foreach (MeshRenderer part in ShipMesh.GetComponentsInChildren<MeshRenderer> ()) {
 			part.GetComponent<Renderer> ().material.color = Color.white;
 		}
