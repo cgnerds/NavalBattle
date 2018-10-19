@@ -147,7 +147,7 @@ public class NavalController : MonoBehaviour {
 		// 设置敌船的随机目标
 		NavalTile targetTile = null;
 		while (true) {
-			int idy = map.mapHorizontalSize * 5 + Random.Range (0, map.mapHorizontalSize);
+			int idy = map.mapHorizontalSize * 2 + Random.Range (0, map.mapHorizontalSize);
 			// set each enemy's targets
 			if (map.ValidIDX (idy)) {
 				targetTile = map.grid[idy] as NavalTile;
