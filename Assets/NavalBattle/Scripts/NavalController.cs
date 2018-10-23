@@ -77,7 +77,7 @@ public class NavalController : MonoBehaviour {
 			touchPosition.Add (float.Parse (m.Value));
 
 		// 触控墙攻击敌船
-		if (touchPosition.Count >= 1) {
+		if (touchPosition.Count >= 3) {
 			for (int i = 0; i < touchPosition[0]; i += 1) {
 				// 触控墙坐标范围默认为1920*1080，需要根据Unity实际分辨率进行缩放                
 				Ray ray = Camera.main.ScreenPointToRay (new Vector3 (touchPosition[i * 2 + 1] * Screen.width / 1920.0f,
@@ -90,7 +90,8 @@ public class NavalController : MonoBehaviour {
 					}
 				}
 			}
-		} else if (Input.GetMouseButtonDown (0)) // 否则，鼠标左键攻击敌船
+		} 
+		else if (Input.GetMouseButtonDown (0)) // 否则，鼠标左键攻击敌船
 		{
 			RaycastHit hit;
 			Ray r = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -98,6 +99,11 @@ public class NavalController : MonoBehaviour {
 				if (hit.transform.gameObject.layer == 9) {
 					EnemyUnit unit = hit.transform.GetComponent<EnemyUnit> ();
 					unit.SetDamage (1);
+				}
+				else if (hit.transform.gameObject.layer == 8) {
+					UnityEngine.Debug.Log(hit.transform.name);
+					CannonHuman cannon = hit.transform.GetComponent<CannonHuman> ();
+					cannon.StartCoroutine(cannon.Attack());
 				}
 			}
 		}

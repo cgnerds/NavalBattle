@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Cannon : MonoBehaviour {
+public class CannonHuman : MonoBehaviour {
     // 攻击范围
     public float attackArea = 20.0f;
     // 攻击力
@@ -22,7 +22,7 @@ public class Cannon : MonoBehaviour {
     private void Start() 
     {
         animator = this.GetComponent<Animator>();
-        StartCoroutine(Attack()); // 执行攻击逻辑
+        // StartCoroutine(Attack()); // 执行攻击逻辑
     }
 
     private void Update() {
@@ -86,74 +86,16 @@ public class Cannon : MonoBehaviour {
         transform.rotation = targetrotation;
     }
 
-
-
-    // [SerializeField]
-    // private float fireSpeed = 3f;
-    // private float fireCounter = 0f;
-    // private bool canFire = true;
-
-
-
-    // private bool isLockedOn = true;
-
-    // public bool LockedOn {
-    //     get { return isLockedOn; }
-    //     set { isLockedOn = value; }
-    // }
-
-    // private void Update() {
-    //     Debug.Log(LockedOn.ToString() + "------" + canFire.ToString());
-    //     if (LockedOn && canFire) {
-    //         StartCoroutine(Fire());
-    //     }
-    // }
-
-    // private void OnTriggerEnter(Collider other) {
-    //     if (other.tag == "Enemy") {
-    //         animator.SetBool("TankInRange", true);
-    //     }
-    // }
-
-    // private void OnTriggerExit(Collider other) {
-    //     if (other.tag == "Enemy") {
-    //         animator.SetBool("TankInRange", false);
-    //     }
-    // }
-
     private void FireProjectile() {
         GameObject bullet = Instantiate(projectile, muzzle.position, muzzle.rotation) as GameObject;
         bullet.GetComponent<Rigidbody>().AddForce(muzzle.forward * 750.0f);
     }
 
-    // private IEnumerator Fire() {
-    //     canFire = false;
-    //     FireProjectile();
-    //     while (fireCounter < fireSpeed) {
-    //         fireCounter += Time.deltaTime;
-    //         yield return null;
-    //     }
-    //     canFire = true;
-    //     fireCounter = 0f;
-    // }
-
-
-
     // 攻击逻辑
-    protected virtual IEnumerator Attack()
+    public virtual IEnumerator Attack()
     {
         while (targetEnemy == null || !isFaceEnemy) // 如果没有目标一直等待
             yield return 0;
-        // animator.CrossFade("attack", 0.1f); // 播放攻击动画
-
-        // while (!animator.GetCurrentAnimatorStateInfo(0).IsName("attack")) // 等待进入攻击动画
-        //     yield return 0;
-        // float ani_lenght = animator.GetCurrentAnimatorStateInfo(0).length; // 获得攻击动画时间长度
-        // yield return new WaitForSeconds(ani_lenght * 0.5f); // 等待完成攻击动作
-        // if (targetEnemy != null)
-        //     targetEnemy.SetDamage(attackPower); // 攻击
-        // yield return new WaitForSeconds(ani_lenght * 0.5f); // 等待播放剩余的攻击动画
-        // animator.CrossFade("idle", 0.1f); // 播放待机动画
 
         FireProjectile();
         yield return new WaitForSeconds(attackInterval*0.5f); // 间隔一定时间
@@ -164,6 +106,6 @@ public class Cannon : MonoBehaviour {
         }
         yield return new WaitForSeconds(attackInterval); // 间隔一定时间
 
-        StartCoroutine(Attack()); // 下一轮攻击
+        // StartCoroutine(Attack()); // 下一轮攻击
     }
 }
