@@ -10,7 +10,6 @@ public class Projectile : MonoBehaviour {
 
     private void Awake () {
         objPool = this.GetComponent<ObjectPool> ();
-        Debug.Log(objPool.name);
     }
 
     void Start () { }

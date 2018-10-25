@@ -23,8 +23,8 @@ public class CannonHuman : MonoBehaviour {
     public GameObject bulletBarFab;
     private Transform bulletBarObj;
     private UnityEngine.UI.Slider bulletBarSlider;
-    private int curBulletCount = 20;
-	private int maxBulletCount = 20;
+    public int curBulletCount = 5;
+	public int maxBulletCount = 5;
 
     private void Start () {
         bulletBarObj = ((GameObject) Instantiate (bulletBarFab, Vector3.zero, Camera.main.transform.rotation, this.transform)).transform;
@@ -43,7 +43,14 @@ public class CannonHuman : MonoBehaviour {
 
     public void ChangeBulletCount (int count) {
 		curBulletCount += count;
-        curBulletCount = Mathf.Clamp(curBulletCount, 0, maxBulletCount);
+        if(curBulletCount < 0)
+        {
+            curBulletCount = 0;
+        }
+        if(curBulletCount > maxBulletCount)
+        {
+            curBulletCount = maxBulletCount;
+        }
 	}
 
     private void Update () {

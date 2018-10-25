@@ -114,10 +114,13 @@ public class NavalController : MonoBehaviour {
 			RaycastHit hit;
 			Ray r = Camera.main.ScreenPointToRay (Input.mousePosition);
 			if (Physics.Raycast (r, out hit, Mathf.Infinity, clickMask)) {
-				if (hit.transform.gameObject.layer == 9) {
+				if (hit.transform.gameObject.layer == 9) 
+				{
 					EnemyUnit unit = hit.transform.GetComponent<EnemyUnit> ();
 					unit.SetDamage (1);
-				} else if (hit.transform.gameObject.layer == 8) {
+				} 
+				else if (hit.transform.gameObject.layer == 8) 
+				{
 					CannonHuman cannon = hit.transform.GetComponent<CannonHuman> ();
 					cannon.Attack ();
 				}
