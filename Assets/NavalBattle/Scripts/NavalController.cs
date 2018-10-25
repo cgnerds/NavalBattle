@@ -206,11 +206,6 @@ public class NavalController : MonoBehaviour {
 		baseLifeUI.text = string.Format ("生命: <color=yellow>{0}</color>", baseLife);
 	}
 
-	public void PlayCheer()
-	{
-		crowdPeople.GetComponent<Animator>().SetTrigger("CanCheer");
-	}
-
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
 	#region callbacks

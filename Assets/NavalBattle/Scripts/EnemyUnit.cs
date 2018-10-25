@@ -40,6 +40,10 @@ public class EnemyUnit : MonoBehaviour {
 	public GameObject ShipMesh;
 	public AudioSource audioSource;
 	public AudioClip attaked;
+	// 船帆颜色
+	public GameObject fanPart;
+	private Color fanColor;
+
 
 	// ------------------------------------------------------------------------------------------------------------
 	private void Start () {
@@ -57,6 +61,13 @@ public class EnemyUnit : MonoBehaviour {
 				this.gameObject.AddComponent<AudioSource> ();
 			}
 		}
+
+		// 船帆随机颜色
+		float r = Random.Range(0.0f, 1.0f);
+		float g = Random.Range(0.0f, 1.0f);
+		float b = Random.Range(0.0f, 1.0f);
+		fanColor = new Color(r, g, b, 1.0f);
+		fanPart.GetComponent<Renderer>().material.color = fanColor;
 	}
 
 	IEnumerator UpdateLifebar () {
@@ -98,6 +109,7 @@ public class EnemyUnit : MonoBehaviour {
 		foreach (MeshRenderer part in ShipMesh.GetComponentsInChildren<MeshRenderer> ()) {
 			part.GetComponent<Renderer> ().material.color = Color.white;
 		}
+		fanPart.GetComponent<Renderer>().material.color = fanColor;
 	}
 
 	/// <summary>
