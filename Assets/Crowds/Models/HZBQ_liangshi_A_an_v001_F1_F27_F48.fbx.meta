@@ -1,0 +1,299 @@
+fileFormatVersion: 2
+guid: 2731d40e87dca544daf6a6a217f20969
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ankle_L
+    100002: Ankle_R
+    100004: Chest_M
+    100006: Cup_L
+    100008: Cup_R
+    100010: DeformationSystem
+    100012: Elbow_L
+    100014: Elbow_R
+    100016: Head_M
+    100018: HeadEnd_M
+    100020: Hip_L
+    100022: Hip_R
+    100024: //RootNode
+    100026: HZBQ_liangshi_A_body
+    100028: HZBQ_liangshi_A_Mo_grp
+    100030: HZBQ_liangshi_A_model_grp
+    100032: HZBQ_liangshi_A_yifu
+    100034: HZBQ_madai_mo
+    100036: IndexFinger1_L
+    100038: IndexFinger1_R
+    100040: IndexFinger2_L
+    100042: IndexFinger2_R
+    100044: IndexFinger3_L
+    100046: IndexFinger3_R
+    100048: IndexFinger4_L
+    100050: IndexFinger4_R
+    100052: Knee_L
+    100054: Knee_R
+    100056: madai
+    100058: madai_jnt
+    100060: Main_jnt
+    100062: MiddleFinger1_L
+    100064: MiddleFinger1_R
+    100066: MiddleFinger2_L
+    100068: MiddleFinger2_R
+    100070: MiddleFinger3_L
+    100072: MiddleFinger3_R
+    100074: MiddleFinger4_L
+    100076: MiddleFinger4_R
+    100078: Neck_M
+    100080: PinkyFinger1_L
+    100082: PinkyFinger1_R
+    100084: PinkyFinger2_L
+    100086: PinkyFinger2_R
+    100088: PinkyFinger3_L
+    100090: PinkyFinger3_R
+    100092: PinkyFinger4_L
+    100094: PinkyFinger4_R
+    100096: RingFinger1_L
+    100098: RingFinger1_R
+    100100: RingFinger2_L
+    100102: RingFinger2_R
+    100104: RingFinger3_L
+    100106: RingFinger3_R
+    100108: RingFinger4_L
+    100110: RingFinger4_R
+    100112: Root_M
+    100114: Scapula_L
+    100116: Scapula_R
+    100118: Shoulder_L
+    100120: Shoulder_R
+    100122: Spine1_M
+    100124: Spine2_M
+    100126: ThumbFinger1_L
+    100128: ThumbFinger1_R
+    100130: ThumbFinger2_L
+    100132: ThumbFinger2_R
+    100134: ThumbFinger3_L
+    100136: ThumbFinger3_R
+    100138: ThumbFinger4_L
+    100140: ThumbFinger4_R
+    100142: Toes_L
+    100144: Toes_R
+    100146: ToesEnd_L
+    100148: ToesEnd_R
+    100150: Wrist_L
+    100152: Wrist_R
+    400000: Ankle_L
+    400002: Ankle_R
+    400004: Chest_M
+    400006: Cup_L
+    400008: Cup_R
+    400010: DeformationSystem
+    400012: Elbow_L
+    400014: Elbow_R
+    400016: Head_M
+    400018: HeadEnd_M
+    400020: Hip_L
+    400022: Hip_R
+    400024: //RootNode
+    400026: HZBQ_liangshi_A_body
+    400028: HZBQ_liangshi_A_Mo_grp
+    400030: HZBQ_liangshi_A_model_grp
+    400032: HZBQ_liangshi_A_yifu
+    400034: HZBQ_madai_mo
+    400036: IndexFinger1_L
+    400038: IndexFinger1_R
+    400040: IndexFinger2_L
+    400042: IndexFinger2_R
+    400044: IndexFinger3_L
+    400046: IndexFinger3_R
+    400048: IndexFinger4_L
+    400050: IndexFinger4_R
+    400052: Knee_L
+    400054: Knee_R
+    400056: madai
+    400058: madai_jnt
+    400060: Main_jnt
+    400062: MiddleFinger1_L
+    400064: MiddleFinger1_R
+    400066: MiddleFinger2_L
+    400068: MiddleFinger2_R
+    400070: MiddleFinger3_L
+    400072: MiddleFinger3_R
+    400074: MiddleFinger4_L
+    400076: MiddleFinger4_R
+    400078: Neck_M
+    400080: PinkyFinger1_L
+    400082: PinkyFinger1_R
+    400084: PinkyFinger2_L
+    400086: PinkyFinger2_R
+    400088: PinkyFinger3_L
+    400090: PinkyFinger3_R
+    400092: PinkyFinger4_L
+    400094: PinkyFinger4_R
+    400096: RingFinger1_L
+    400098: RingFinger1_R
+    400100: RingFinger2_L
+    400102: RingFinger2_R
+    400104: RingFinger3_L
+    400106: RingFinger3_R
+    400108: RingFinger4_L
+    400110: RingFinger4_R
+    400112: Root_M
+    400114: Scapula_L
+    400116: Scapula_R
+    400118: Shoulder_L
+    400120: Shoulder_R
+    400122: Spine1_M
+    400124: Spine2_M
+    400126: ThumbFinger1_L
+    400128: ThumbFinger1_R
+    400130: ThumbFinger2_L
+    400132: ThumbFinger2_R
+    400134: ThumbFinger3_L
+    400136: ThumbFinger3_R
+    400138: ThumbFinger4_L
+    400140: ThumbFinger4_R
+    400142: Toes_L
+    400144: Toes_R
+    400146: ToesEnd_L
+    400148: ToesEnd_R
+    400150: Wrist_L
+    400152: Wrist_R
+    2100000: blinn1SG
+    2100002: initialShadingGroup1
+    2100004: laodongnan01_b
+    2100006: madai_1
+    4300000: HZBQ_liangshi_A_body
+    4300002: HZBQ_liangshi_A_yifu
+    4300004: madai
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: HZBQ_liangshi_A_body
+    13700002: HZBQ_liangshi_A_yifu
+    13700004: madai
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1SG
+    second: {fileID: 2100000, guid: 72d63d75f697c154081cea24662b6c0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: initialShadingGroup1
+    second: {fileID: 2100000, guid: 51e14d6bbb78aa142a5875dc38b1fa31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: laodongnan01_b
+    second: {fileID: 2100000, guid: 3ddc86687fb6eb549a743c32fc558920, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: madai_1
+    second: {fileID: 2100000, guid: ffeb90723c68325449b941550ca81313, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

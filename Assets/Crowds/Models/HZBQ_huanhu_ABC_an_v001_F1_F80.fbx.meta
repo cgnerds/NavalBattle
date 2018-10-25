@@ -1,0 +1,605 @@
+fileFormatVersion: 2
+guid: 50f7578fd3d255e48b5e442674a81703
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ankle_L
+    100002: Ankle_L 1
+    100004: Ankle_L 2
+    100006: Ankle_R
+    100008: Ankle_R 1
+    100010: Ankle_R 2
+    100012: Chest_M
+    100014: Chest_M 1
+    100016: Chest_M 2
+    100018: Cup_L
+    100020: Cup_L 1
+    100022: Cup_R
+    100024: Cup_R 1
+    100026: DeformationSystem
+    100028: DeformationSystem 1
+    100030: DeformationSystem 2
+    100032: Elbow_L
+    100034: Elbow_L 1
+    100036: Elbow_L 2
+    100038: Elbow_R
+    100040: Elbow_R 1
+    100042: Elbow_R 2
+    100044: Head_M
+    100046: Head_M 1
+    100048: Head_M 2
+    100050: HeadEnd_M
+    100052: HeadEnd_M 1
+    100054: HeadEnd_M 2
+    100056: Hip_L
+    100058: Hip_L 1
+    100060: Hip_L 2
+    100062: Hip_R
+    100064: Hip_R 1
+    100066: Hip_R 2
+    100068: HZBQ_huanhu_A
+    100070: HZBQ_huanhu_A_Mo_grp
+    100072: HZBQ_huanhu_A_model_grp
+    100074: HZBQ_huanhu_A_Rig_grp
+    100076: //RootNode
+    100078: HZBQ_huanhu_B_body1
+    100080: HZBQ_huanhu_B_model_grp
+    100082: HZBQ_huanhu_B_rig_grp
+    100084: HZBQ_huanhu_B_yifu2
+    100086: HZBQ_huanhu_C_body
+    100088: HZBQ_huanhu_C_Mo_grp
+    100090: HZBQ_huanhu_C_model_grp
+    100092: HZBQ_huanhu_C_Rig_grp
+    100094: HZBQ_huanhu_C_yifu
+    100096: IndexFinger1_L
+    100098: IndexFinger1_L 1
+    100100: IndexFinger1_L 2
+    100102: IndexFinger1_R
+    100104: IndexFinger1_R 1
+    100106: IndexFinger1_R 2
+    100108: IndexFinger2_L
+    100110: IndexFinger2_L 1
+    100112: IndexFinger2_L 2
+    100114: IndexFinger2_R
+    100116: IndexFinger2_R 1
+    100118: IndexFinger2_R 2
+    100120: IndexFinger3_L
+    100122: IndexFinger3_L 1
+    100124: IndexFinger3_L 2
+    100126: IndexFinger3_R
+    100128: IndexFinger3_R 1
+    100130: IndexFinger3_R 2
+    100132: IndexFinger4_L
+    100134: IndexFinger4_L 1
+    100136: IndexFinger4_L 2
+    100138: IndexFinger4_R
+    100140: IndexFinger4_R 1
+    100142: IndexFinger4_R 2
+    100144: Knee_L
+    100146: Knee_L 1
+    100148: Knee_L 2
+    100150: Knee_R
+    100152: Knee_R 1
+    100154: Knee_R 2
+    100156: Main_Jnt
+    100158: Main_jnt
+    100160: Main_jnt 1
+    100162: MiddleFinger1_L
+    100164: MiddleFinger1_L 1
+    100166: MiddleFinger1_L 2
+    100168: MiddleFinger1_R
+    100170: MiddleFinger1_R 1
+    100172: MiddleFinger1_R 2
+    100174: MiddleFinger2_L
+    100176: MiddleFinger2_L 1
+    100178: MiddleFinger2_L 2
+    100180: MiddleFinger2_R
+    100182: MiddleFinger2_R 1
+    100184: MiddleFinger2_R 2
+    100186: MiddleFinger3_L
+    100188: MiddleFinger3_L 1
+    100190: MiddleFinger3_L 2
+    100192: MiddleFinger3_R
+    100194: MiddleFinger3_R 1
+    100196: MiddleFinger3_R 2
+    100198: MiddleFinger4_L
+    100200: MiddleFinger4_L 1
+    100202: MiddleFinger4_L 2
+    100204: MiddleFinger4_R
+    100206: MiddleFinger4_R 1
+    100208: MiddleFinger4_R 2
+    100210: Neck_M
+    100212: Neck_M 1
+    100214: Neck_M 2
+    100216: PinkyFinger1_L
+    100218: PinkyFinger1_L 1
+    100220: PinkyFinger1_L 2
+    100222: PinkyFinger1_R
+    100224: PinkyFinger1_R 1
+    100226: PinkyFinger1_R 2
+    100228: PinkyFinger2_L
+    100230: PinkyFinger2_L 1
+    100232: PinkyFinger2_L 2
+    100234: PinkyFinger2_R
+    100236: PinkyFinger2_R 1
+    100238: PinkyFinger2_R 2
+    100240: PinkyFinger3_L
+    100242: PinkyFinger3_L 1
+    100244: PinkyFinger3_L 2
+    100246: PinkyFinger3_R
+    100248: PinkyFinger3_R 1
+    100250: PinkyFinger3_R 2
+    100252: PinkyFinger4_L
+    100254: PinkyFinger4_L 1
+    100256: PinkyFinger4_L 2
+    100258: PinkyFinger4_R
+    100260: PinkyFinger4_R 1
+    100262: PinkyFinger4_R 2
+    100264: RingFinger1_L
+    100266: RingFinger1_L 1
+    100268: RingFinger1_L 2
+    100270: RingFinger1_R
+    100272: RingFinger1_R 1
+    100274: RingFinger1_R 2
+    100276: RingFinger2_L
+    100278: RingFinger2_L 1
+    100280: RingFinger2_L 2
+    100282: RingFinger2_R
+    100284: RingFinger2_R 1
+    100286: RingFinger2_R 2
+    100288: RingFinger3_L
+    100290: RingFinger3_L 1
+    100292: RingFinger3_L 2
+    100294: RingFinger3_R
+    100296: RingFinger3_R 1
+    100298: RingFinger3_R 2
+    100300: RingFinger4_L
+    100302: RingFinger4_L 1
+    100304: RingFinger4_L 2
+    100306: RingFinger4_R
+    100308: RingFinger4_R 1
+    100310: RingFinger4_R 2
+    100312: Root_M
+    100314: Root_M 1
+    100316: Root_M 2
+    100318: Scapula_L
+    100320: Scapula_L 1
+    100322: Scapula_L 2
+    100324: Scapula_R
+    100326: Scapula_R 1
+    100328: Scapula_R 2
+    100330: Shoulder_L
+    100332: Shoulder_L 1
+    100334: Shoulder_L 2
+    100336: Shoulder_R
+    100338: Shoulder_R 1
+    100340: Shoulder_R 2
+    100342: Spine1_M
+    100344: Spine1_M 1
+    100346: Spine1_M 2
+    100348: Spine2_M
+    100350: Spine2_M 1
+    100352: Spine2_M 2
+    100354: ThumbFinger1_L
+    100356: ThumbFinger1_L 1
+    100358: ThumbFinger1_L 2
+    100360: ThumbFinger1_R
+    100362: ThumbFinger1_R 1
+    100364: ThumbFinger1_R 2
+    100366: ThumbFinger2_L
+    100368: ThumbFinger2_L 1
+    100370: ThumbFinger2_L 2
+    100372: ThumbFinger2_R
+    100374: ThumbFinger2_R 1
+    100376: ThumbFinger2_R 2
+    100378: ThumbFinger3_L
+    100380: ThumbFinger3_L 1
+    100382: ThumbFinger3_L 2
+    100384: ThumbFinger3_R
+    100386: ThumbFinger3_R 1
+    100388: ThumbFinger3_R 2
+    100390: ThumbFinger4_L
+    100392: ThumbFinger4_L 1
+    100394: ThumbFinger4_L 2
+    100396: ThumbFinger4_R
+    100398: ThumbFinger4_R 1
+    100400: ThumbFinger4_R 2
+    100402: Toes_L
+    100404: Toes_L 1
+    100406: Toes_L 2
+    100408: Toes_R
+    100410: Toes_R 1
+    100412: Toes_R 2
+    100414: ToesEnd_L
+    100416: ToesEnd_L 1
+    100418: ToesEnd_L 2
+    100420: ToesEnd_R
+    100422: ToesEnd_R 1
+    100424: ToesEnd_R 2
+    100426: Wrist_L
+    100428: Wrist_L 1
+    100430: Wrist_L 2
+    100432: Wrist_R
+    100434: Wrist_R 1
+    100436: Wrist_R 2
+    400000: Ankle_L
+    400002: Ankle_L 1
+    400004: Ankle_L 2
+    400006: Ankle_R
+    400008: Ankle_R 1
+    400010: Ankle_R 2
+    400012: Chest_M
+    400014: Chest_M 1
+    400016: Chest_M 2
+    400018: Cup_L
+    400020: Cup_L 1
+    400022: Cup_R
+    400024: Cup_R 1
+    400026: DeformationSystem
+    400028: DeformationSystem 1
+    400030: DeformationSystem 2
+    400032: Elbow_L
+    400034: Elbow_L 1
+    400036: Elbow_L 2
+    400038: Elbow_R
+    400040: Elbow_R 1
+    400042: Elbow_R 2
+    400044: Head_M
+    400046: Head_M 1
+    400048: Head_M 2
+    400050: HeadEnd_M
+    400052: HeadEnd_M 1
+    400054: HeadEnd_M 2
+    400056: Hip_L
+    400058: Hip_L 1
+    400060: Hip_L 2
+    400062: Hip_R
+    400064: Hip_R 1
+    400066: Hip_R 2
+    400068: HZBQ_huanhu_A
+    400070: HZBQ_huanhu_A_Mo_grp
+    400072: HZBQ_huanhu_A_model_grp
+    400074: HZBQ_huanhu_A_Rig_grp
+    400076: //RootNode
+    400078: HZBQ_huanhu_B_body1
+    400080: HZBQ_huanhu_B_model_grp
+    400082: HZBQ_huanhu_B_rig_grp
+    400084: HZBQ_huanhu_B_yifu2
+    400086: HZBQ_huanhu_C_body
+    400088: HZBQ_huanhu_C_Mo_grp
+    400090: HZBQ_huanhu_C_model_grp
+    400092: HZBQ_huanhu_C_Rig_grp
+    400094: HZBQ_huanhu_C_yifu
+    400096: IndexFinger1_L
+    400098: IndexFinger1_L 1
+    400100: IndexFinger1_L 2
+    400102: IndexFinger1_R
+    400104: IndexFinger1_R 1
+    400106: IndexFinger1_R 2
+    400108: IndexFinger2_L
+    400110: IndexFinger2_L 1
+    400112: IndexFinger2_L 2
+    400114: IndexFinger2_R
+    400116: IndexFinger2_R 1
+    400118: IndexFinger2_R 2
+    400120: IndexFinger3_L
+    400122: IndexFinger3_L 1
+    400124: IndexFinger3_L 2
+    400126: IndexFinger3_R
+    400128: IndexFinger3_R 1
+    400130: IndexFinger3_R 2
+    400132: IndexFinger4_L
+    400134: IndexFinger4_L 1
+    400136: IndexFinger4_L 2
+    400138: IndexFinger4_R
+    400140: IndexFinger4_R 1
+    400142: IndexFinger4_R 2
+    400144: Knee_L
+    400146: Knee_L 1
+    400148: Knee_L 2
+    400150: Knee_R
+    400152: Knee_R 1
+    400154: Knee_R 2
+    400156: Main_Jnt
+    400158: Main_jnt
+    400160: Main_jnt 1
+    400162: MiddleFinger1_L
+    400164: MiddleFinger1_L 1
+    400166: MiddleFinger1_L 2
+    400168: MiddleFinger1_R
+    400170: MiddleFinger1_R 1
+    400172: MiddleFinger1_R 2
+    400174: MiddleFinger2_L
+    400176: MiddleFinger2_L 1
+    400178: MiddleFinger2_L 2
+    400180: MiddleFinger2_R
+    400182: MiddleFinger2_R 1
+    400184: MiddleFinger2_R 2
+    400186: MiddleFinger3_L
+    400188: MiddleFinger3_L 1
+    400190: MiddleFinger3_L 2
+    400192: MiddleFinger3_R
+    400194: MiddleFinger3_R 1
+    400196: MiddleFinger3_R 2
+    400198: MiddleFinger4_L
+    400200: MiddleFinger4_L 1
+    400202: MiddleFinger4_L 2
+    400204: MiddleFinger4_R
+    400206: MiddleFinger4_R 1
+    400208: MiddleFinger4_R 2
+    400210: Neck_M
+    400212: Neck_M 1
+    400214: Neck_M 2
+    400216: PinkyFinger1_L
+    400218: PinkyFinger1_L 1
+    400220: PinkyFinger1_L 2
+    400222: PinkyFinger1_R
+    400224: PinkyFinger1_R 1
+    400226: PinkyFinger1_R 2
+    400228: PinkyFinger2_L
+    400230: PinkyFinger2_L 1
+    400232: PinkyFinger2_L 2
+    400234: PinkyFinger2_R
+    400236: PinkyFinger2_R 1
+    400238: PinkyFinger2_R 2
+    400240: PinkyFinger3_L
+    400242: PinkyFinger3_L 1
+    400244: PinkyFinger3_L 2
+    400246: PinkyFinger3_R
+    400248: PinkyFinger3_R 1
+    400250: PinkyFinger3_R 2
+    400252: PinkyFinger4_L
+    400254: PinkyFinger4_L 1
+    400256: PinkyFinger4_L 2
+    400258: PinkyFinger4_R
+    400260: PinkyFinger4_R 1
+    400262: PinkyFinger4_R 2
+    400264: RingFinger1_L
+    400266: RingFinger1_L 1
+    400268: RingFinger1_L 2
+    400270: RingFinger1_R
+    400272: RingFinger1_R 1
+    400274: RingFinger1_R 2
+    400276: RingFinger2_L
+    400278: RingFinger2_L 1
+    400280: RingFinger2_L 2
+    400282: RingFinger2_R
+    400284: RingFinger2_R 1
+    400286: RingFinger2_R 2
+    400288: RingFinger3_L
+    400290: RingFinger3_L 1
+    400292: RingFinger3_L 2
+    400294: RingFinger3_R
+    400296: RingFinger3_R 1
+    400298: RingFinger3_R 2
+    400300: RingFinger4_L
+    400302: RingFinger4_L 1
+    400304: RingFinger4_L 2
+    400306: RingFinger4_R
+    400308: RingFinger4_R 1
+    400310: RingFinger4_R 2
+    400312: Root_M
+    400314: Root_M 1
+    400316: Root_M 2
+    400318: Scapula_L
+    400320: Scapula_L 1
+    400322: Scapula_L 2
+    400324: Scapula_R
+    400326: Scapula_R 1
+    400328: Scapula_R 2
+    400330: Shoulder_L
+    400332: Shoulder_L 1
+    400334: Shoulder_L 2
+    400336: Shoulder_R
+    400338: Shoulder_R 1
+    400340: Shoulder_R 2
+    400342: Spine1_M
+    400344: Spine1_M 1
+    400346: Spine1_M 2
+    400348: Spine2_M
+    400350: Spine2_M 1
+    400352: Spine2_M 2
+    400354: ThumbFinger1_L
+    400356: ThumbFinger1_L 1
+    400358: ThumbFinger1_L 2
+    400360: ThumbFinger1_R
+    400362: ThumbFinger1_R 1
+    400364: ThumbFinger1_R 2
+    400366: ThumbFinger2_L
+    400368: ThumbFinger2_L 1
+    400370: ThumbFinger2_L 2
+    400372: ThumbFinger2_R
+    400374: ThumbFinger2_R 1
+    400376: ThumbFinger2_R 2
+    400378: ThumbFinger3_L
+    400380: ThumbFinger3_L 1
+    400382: ThumbFinger3_L 2
+    400384: ThumbFinger3_R
+    400386: ThumbFinger3_R 1
+    400388: ThumbFinger3_R 2
+    400390: ThumbFinger4_L
+    400392: ThumbFinger4_L 1
+    400394: ThumbFinger4_L 2
+    400396: ThumbFinger4_R
+    400398: ThumbFinger4_R 1
+    400400: ThumbFinger4_R 2
+    400402: Toes_L
+    400404: Toes_L 1
+    400406: Toes_L 2
+    400408: Toes_R
+    400410: Toes_R 1
+    400412: Toes_R 2
+    400414: ToesEnd_L
+    400416: ToesEnd_L 1
+    400418: ToesEnd_L 2
+    400420: ToesEnd_R
+    400422: ToesEnd_R 1
+    400424: ToesEnd_R 2
+    400426: Wrist_L
+    400428: Wrist_L 1
+    400430: Wrist_L 2
+    400432: Wrist_R
+    400434: Wrist_R 1
+    400436: Wrist_R 2
+    2100000: blinn2SG
+    2100002: blinn3SG
+    2100004: 19 - Default
+    2100006: 20 - Default
+    2100008: jianshenlaoren01_b
+    2100010: jianshenlaoren01_a
+    2100012: jianshenlaoren01
+    4300000: HZBQ_huanhu_B_yifu2
+    4300002: HZBQ_huanhu_B_body1
+    4300004: HZBQ_huanhu_A
+    4300006: HZBQ_huanhu_C_body
+    4300008: HZBQ_huanhu_C_yifu
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: HZBQ_huanhu_A
+    13700002: HZBQ_huanhu_B_body1
+    13700004: HZBQ_huanhu_B_yifu2
+    13700006: HZBQ_huanhu_C_body
+    13700008: HZBQ_huanhu_C_yifu
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 19 - Default
+    second: {fileID: 2100000, guid: afbc3de57c34cbf46bd4352617b4a852, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 20 - Default
+    second: {fileID: 2100000, guid: 202e1ba5c9cbc5f4aa14d39f592a13e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn2SG
+    second: {fileID: 2100000, guid: d8ba60b4e284ca14992aabfe2030bde9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn3SG
+    second: {fileID: 2100000, guid: ccd1014143500df42856a91ab6b40873, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jianshenlaoren01
+    second: {fileID: 2100000, guid: a4b20781d150c2042a9fb55a8ec03ba2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jianshenlaoren01_a
+    second: {fileID: 2100000, guid: 2c53aee18c784b54a8e3005b5850e542, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jianshenlaoren01_b
+    second: {fileID: 2100000, guid: 2c53aee18c784b54a8e3005b5850e542, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
