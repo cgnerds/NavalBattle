@@ -19,6 +19,32 @@ public class CannonHuman : MonoBehaviour {
     private Transform muzzle;
     [SerializeField]
     private GameObject projectile;
+    // 生命条
+    public GameObject bulletBarFab;
+    private Transform bulletBarObj;
+    private UnityEngine.UI.Slider bulletBarSlider;
+    private int curBulletCount = 20;
+	private int maxBulletCount = 20;
+
+    private void Start () {
+        bulletBarObj = ((GameObject) Instantiate (bulletBarFab, Vector3.zero, Camera.main.transform.rotation, this.transform)).transform;
+        bulletBarObj.localPosition = new Vector3 (0.0f, 4.0f, 2.0f);
+        bulletBarObj.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
+        bulletBarSlider = bulletBarObj.GetComponentInChildren<UnityEngine.UI.Slider> ();
+        StartCoroutine (UpdateLifebar ());
+    }
+
+    IEnumerator UpdateLifebar () {
+        bulletBarSlider.value = (float) curBulletCount / (float) maxBulletCount;
+        bulletBarObj.transform.eulerAngles = Camera.main.transform.eulerAngles;
+        yield return 0;
+        StartCoroutine (UpdateLifebar ());
+    }
+
+    public void ChangeBulletCount (int count) {
+		curBulletCount += count;
+        curBulletCount = Mathf.Clamp(curBulletCount, 0, maxBulletCount);
+	}
 
     private void Update () {
         FindEnemy ();
@@ -91,7 +117,9 @@ public class CannonHuman : MonoBehaviour {
         // if (targetEnemy == null || !isFaceEnemy || !canAttack) // 如果没有目标一直等待
         //     return;
 
-        if (targetEnemy != null && isFaceEnemy && canAttack) {
+        if (targetEnemy != null && isFaceEnemy && canAttack && curBulletCount >= 1) {
+            // 减少炮弹数量
+            ChangeBulletCount(-1);
 
             canAttack = false;
             FireProjectile ();
@@ -99,6 +127,5 @@ public class CannonHuman : MonoBehaviour {
                 targetEnemy.SetDamage (attackPower);
             }
         }
-
     }
 }
