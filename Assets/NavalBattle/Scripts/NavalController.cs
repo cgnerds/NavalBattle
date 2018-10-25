@@ -14,6 +14,12 @@ public class NavalController : MonoBehaviour {
 	public UnityEngine.UI.Text baseLifeUI = null;
 	public UnityEngine.UI.Text touchInfo = null;
 	public UnityEngine.UI.Text statusInfo = null;
+	public GameObject crowdPeople; // 人群欢呼
+	private bool isCheerOn = false;
+	public bool CheerOn {
+        get { return isCheerOn; }
+        set { isCheerOn = value; }
+    }
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
 	#region enemySpawn
@@ -23,7 +29,6 @@ public class NavalController : MonoBehaviour {
 	private int curEnemyCount = 0; // 当前敌船数量
 	[HideInInspector]
 	public List<EnemyUnit> enemyList = new List<EnemyUnit> (); // 船只列表
-
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
 	#region runtime
@@ -200,6 +205,12 @@ public class NavalController : MonoBehaviour {
 
 		baseLifeUI.text = string.Format ("生命: <color=yellow>{0}</color>", baseLife);
 	}
+
+	public void PlayCheer()
+	{
+		crowdPeople.GetComponent<Animator>().SetTrigger("CanCheer");
+	}
+
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
 	#region callbacks
@@ -223,6 +234,8 @@ public class NavalController : MonoBehaviour {
 		curEnemyCount--;
 		// 将敌船从列表中删除
 		enemyList.Remove (enemy);
+		// 人群欢呼
+		crowdPeople.GetComponent<Animator>().SetTrigger("CanCheer");
 	}
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------

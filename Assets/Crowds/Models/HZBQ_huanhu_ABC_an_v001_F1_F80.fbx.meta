@@ -453,7 +453,7 @@ ModelImporter:
     4300004: HZBQ_huanhu_A
     4300006: HZBQ_huanhu_C_body
     4300008: HZBQ_huanhu_C_yifu
-    7400000: Take 001
+    7400000: Cheer
     9500000: //RootNode
     13700000: HZBQ_huanhu_A
     13700002: HZBQ_huanhu_B_body1
@@ -523,7 +523,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Cheer
       takeName: Take 001
       firstFrame: 1
       lastFrame: 80
