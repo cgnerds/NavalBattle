@@ -34,7 +34,7 @@ public class EnemyUnit : MonoBehaviour {
 	// 敌船导弹系统
 	public WeaponController weapon;
 	private float attackInterval = 2.0f;
-	private float damageTimer = 1.0f;
+	private float damageTimer = 0.5f;
 	private bool canDamage = false;
 	// 受到攻击后材质变色并发声
 	public GameObject ShipMesh;
@@ -186,7 +186,7 @@ public class EnemyUnit : MonoBehaviour {
 		// 控制敌船受伤频率
 		damageTimer -= Time.deltaTime;
 		if (damageTimer <= 0) {
-			damageTimer = 1.0f;
+			damageTimer = 0.5f;
 			canDamage = true;
 		}
 

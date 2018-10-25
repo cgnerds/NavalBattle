@@ -23,7 +23,6 @@ public class Projectile : MonoBehaviour {
         // }
 
         if (other.tag == "Enemy" || other.tag == "Tile") {
-            Debug.Log(other.tag);
             if (explosionPrefab) {
                 if (WeaponSystem.Pool != null) {
                     WeaponSystem.Pool.Instantiate (explosionPrefab, transform.position, transform.rotation, 3);

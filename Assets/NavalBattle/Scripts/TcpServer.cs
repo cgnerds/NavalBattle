@@ -12,18 +12,15 @@ using System.Collections.Generic;
 
 public class TcpServer : MonoBehaviour {
 
-    Socket serverSocket; //服务器端socket
-    Socket clientSocket; //客户端socket
-    IPEndPoint ipEnd;    //侦听端口
-    [HideInInspector]
-    public string recvStr; //接收的字符串 
-    [HideInInspector]
+    Socket serverSocket; // 服务器端socket
+    Socket clientSocket; // 客户端socket
+    IPEndPoint ipEnd;    // 侦听端口
+    public string recvStr; //** 接收的字符串  
     public string sendStr; //发送的字符串  
     byte[] recvData = new byte[1024]; //接收的数据，必须为字节  
     byte[] sendData = new byte[1024]; //发送的数据，必须为字节  
     int recvLen; //接收的数据长度  
     Thread connectThread; //连接线程 
-    [HideInInspector]
     public List<int> list = new List<int>(); //触控墙坐标
 
     //初始化  
@@ -49,15 +46,15 @@ public class TcpServer : MonoBehaviour {
             clientSocket.Close();
 
         //控制台输出侦听状态  
-        print("----Waiting for a client----");
+        print("Waiting for a client");
         //一旦接受连接，创建一个客户端  
         clientSocket = serverSocket.Accept();
         //获取客户端的IP和端口  
         IPEndPoint ipEndClient = (IPEndPoint)clientSocket.RemoteEndPoint;
         //输出客户端的IP和端口  
-        print("----Connect with " + ipEndClient.Address.ToString() + ":" + ipEndClient.Port.ToString() + "----");
+        print("Connect with " + ipEndClient.Address.ToString() + ":" + ipEndClient.Port.ToString());
         //连接成功则发送数据  
-        sendStr = "----Welcome to the Unity server----";
+        sendStr = "Welcome to Unity server";
         SocketSend(sendStr);
     }
 
@@ -93,8 +90,10 @@ public class TcpServer : MonoBehaviour {
             foreach (Match m in Regex.Matches(recvStr, @"\d+"))
                 list.Add(int.Parse(m.Value));
             SocketSend(sendStr);
+            //Debug.Log("Reserve1："+ recvStr);
             Debug.Log("Reserve12：" );
         }
+
     }
 
     void SocketQuit()
@@ -110,7 +109,7 @@ public class TcpServer : MonoBehaviour {
         }
         //最后关闭服务器  
         serverSocket.Close();
-        Debug.Log("----Diconnect----");
+        Debug.Log("diconnect");
     }
 
     // Use this for initialization

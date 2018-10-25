@@ -12,6 +12,8 @@ public class NavalController : MonoBehaviour {
 	public static NavalController Instance;
 	private int baseLife = 10000; // 基地生命值
 	public UnityEngine.UI.Text baseLifeUI = null;
+	public UnityEngine.UI.Text touchInfo = null;
+	public UnityEngine.UI.Text statusInfo = null;
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
 	#region enemySpawn
@@ -38,12 +40,12 @@ public class NavalController : MonoBehaviour {
 	}
 
 	IEnumerator startTouchWall () {
-		yield return new WaitForSeconds (0.5f);
+		yield return new WaitForSeconds (1.0f);
 		// 开启触控墙
 		Process.Start ("touch.exe");
-		yield return new WaitForSeconds (0.5f);
-	    // 开启捕捉窗口程序   
-		Process.Start ("WinCapture.exe");
+		// yield return new WaitForSeconds (0.5f);
+		// 开启捕捉窗口程序   
+		// Process.Start ("WinCapture.exe");
 	}
 
 	protected void Start () {
@@ -56,7 +58,6 @@ public class NavalController : MonoBehaviour {
 #if UNITY_STANDALONE_WIN
 		StartCoroutine (startTouchWall ());
 #endif
-
 	}
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
@@ -71,22 +72,39 @@ public class NavalController : MonoBehaviour {
 
 		// 接收触控墙程序发送的字符串
 		string recvStr = Camera.main.GetComponent<TcpServer> ().recvStr;
-		// 获取触控墙坐标，mousePosition[0]为触控点数量，mousePosition[1]和mousePosition[2]分别为第一个点的x轴坐标和y坐标，依此类推
+		// 获取触控墙坐标，touchPosition[0]为触控点数量，touchPosition[1]和touchPosition[2]分别为第一个点的x轴坐标和y坐标，依此类推
 		List<float> touchPosition = new List<float> ();
 		foreach (Match m in Regex.Matches (recvStr, @"\d+"))
 			touchPosition.Add (float.Parse (m.Value));
+	
+		statusInfo.text = string.Format ("Camera: {0}, String: {1}", Camera.main.isActiveAndEnabled, recvStr);
+		
+		//touchInfo.text = string.Format ("Count: <color=yellow>{0}</color>, First:{1},{2}", touchPosition[0], touchPosition[1], touchPosition[2]);
+		if(touchPosition.Count >= 1)
+		{
+		    touchInfo.text = string.Format ("Count: <color=yellow>{0}</color>", touchPosition[0]);
+		}
 
 		// 触控墙攻击敌船
-		if (touchPosition.Count >= 3) {
-			for (int i = 0; i < touchPosition[0]; i += 1) {
+		if (touchPosition.Count > 1) 
+		{
+			for (int i = 0; i < touchPosition[0]; i += 1) 
+			{
 				// 触控墙坐标范围默认为1920*1080，需要根据Unity实际分辨率进行缩放                
 				Ray ray = Camera.main.ScreenPointToRay (new Vector3 (touchPosition[i * 2 + 1] * Screen.width / 1920.0f,
 					touchPosition[i * 2 + 2] * Screen.height / 1080.0f, 0));
 				RaycastHit hit;
-				if (Physics.Raycast (ray, out hit, Mathf.Infinity, clickMask)) {
-					if (hit.transform.gameObject.layer == 9) {
+				if (Physics.Raycast (ray, out hit, Mathf.Infinity, clickMask)) 
+				{
+					if (hit.transform.gameObject.layer == 9) 
+					{
 						EnemyUnit unit = hit.transform.GetComponent<EnemyUnit> ();
 						unit.SetDamage (1);
+					} 
+					else if (hit.transform.gameObject.layer == 8) 
+					{
+						CannonHuman cannon = hit.transform.GetComponent<CannonHuman> ();
+						cannon.Attack ();
 					}
 				}
 			}
@@ -99,11 +117,9 @@ public class NavalController : MonoBehaviour {
 				if (hit.transform.gameObject.layer == 9) {
 					EnemyUnit unit = hit.transform.GetComponent<EnemyUnit> ();
 					unit.SetDamage (1);
-				}
-				else if (hit.transform.gameObject.layer == 8) {
-					UnityEngine.Debug.Log(hit.transform.name);
+				} else if (hit.transform.gameObject.layer == 8) {
 					CannonHuman cannon = hit.transform.GetComponent<CannonHuman> ();
-					cannon.StartCoroutine(cannon.Attack());
+					cannon.Attack ();
 				}
 			}
 		}
@@ -153,7 +169,7 @@ public class NavalController : MonoBehaviour {
 		// 设置敌船的随机目标
 		NavalTile targetTile = null;
 		while (true) {
-			int idy = map.mapHorizontalSize * 2 + Random.Range (0, map.mapHorizontalSize);
+			int idy = map.mapHorizontalSize * 1 + Random.Range (6, map.mapHorizontalSize - 6);
 			// set each enemy's targets
 			if (map.ValidIDX (idy)) {
 				targetTile = map.grid[idy] as NavalTile;
