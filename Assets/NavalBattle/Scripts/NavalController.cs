@@ -10,7 +10,7 @@ public class NavalController : MonoBehaviour {
 	// ------------------------------------------------------------------------------------------------------------
 	#region properties
 	public static NavalController Instance;
-	private int baseLife = 10000; // 基地生命值
+	private int baseLife = 8000; // 基地生命值
 	public UnityEngine.UI.Text baseLifeUI = null;
 	public UnityEngine.UI.Text touchInfo = null;
 	public UnityEngine.UI.Text statusInfo = null;
@@ -191,9 +191,10 @@ public class NavalController : MonoBehaviour {
 
 	public void SetDamage (int damage) {
 		baseLife -= damage;
-		if (baseLife <= 0) {
+		if (baseLife <= 0 || baseLife >= 10000) {
 			baseLife = 10000;
 		}
+
 		baseLifeUI.text = string.Format ("生命: <color=yellow>{0}</color>", baseLife);
 	}
 	#endregion
