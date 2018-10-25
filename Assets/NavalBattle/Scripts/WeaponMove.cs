@@ -5,16 +5,12 @@ using UnityEngine;
 public class WeaponMove : MonoBehaviour {
 	public Vector3 StartPos;
 	public Vector3 EndPos;
-	public float moveSpeed = 2.0f;
-	public float minDist;
-
-	// public GameObject cannon;
-	public string cannonName;
-	private CannonHuman cannonHuman;
+	public float moveSpeed = 1.0f;
+	private float minDist = 1.0f;
+	public CannonHuman cannonHuman;
 
 	// Use this for initialization
 	void Start () {
-		cannonHuman = (CannonHuman)GameObject.Find(cannonName).GetComponent(typeof(CannonHuman));
 	}
 	
 	// Update is called once per frame
