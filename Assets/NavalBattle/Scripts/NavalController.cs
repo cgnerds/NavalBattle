@@ -109,7 +109,7 @@ public class NavalController : MonoBehaviour {
 					else if (hit.transform.gameObject.layer == 8) 
 					{
 						CannonHuman cannon = hit.transform.GetComponent<CannonHuman> ();
-						cannon.Attack ();
+						cannon.Attack();
 					}
 				}
 			}

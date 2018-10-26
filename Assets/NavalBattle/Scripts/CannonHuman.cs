@@ -4,10 +4,6 @@ using UnityEngine;
 public class CannonHuman : MonoBehaviour {
     // 攻击范围
     public float attackArea = 18.0f;
-    // 攻击力
-    public int attackPower = 4;
-    // 攻击时间间隔
-    public float attackInterval = 1.0f;
     private float attackTimer = 1.0f;
     private bool canAttack = false;
     // 目标敌人
@@ -121,18 +117,12 @@ public class CannonHuman : MonoBehaviour {
     }
 
     public void Attack () {
-        // if (targetEnemy == null || !isFaceEnemy || !canAttack) // 如果没有目标一直等待
-        //     return;
-
         if (targetEnemy != null && isFaceEnemy && canAttack && curBulletCount >= 1) {
             // 减少炮弹数量
             ChangeBulletCount(-1);
 
             canAttack = false;
             FireProjectile ();
-            if (targetEnemy != null) {
-                targetEnemy.SetDamage (attackPower);
-            }
         }
     }
 }

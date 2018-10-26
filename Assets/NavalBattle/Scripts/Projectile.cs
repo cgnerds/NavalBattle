@@ -8,6 +8,9 @@ public class Projectile : MonoBehaviour {
     private GameObject explosionPrefab;
     public ObjectPool objPool;
 
+    private EnemyUnit enemy;
+    public int attackPower = 4;
+
     private void Awake () {
         objPool = this.GetComponent<ObjectPool> ();
     }
@@ -15,24 +18,18 @@ public class Projectile : MonoBehaviour {
     void Start () { }
 
     private void OnTriggerEnter (Collider other) {
-
-        // if (objPool && !objPool.Active && WeaponSystem.Pool != null) {
-        //     Debug.Log(objPool.name);
-        //     return;
-        // }
+        Debug.Log(other.name);
 
         if (other.tag == "Enemy" || other.tag == "Tile") {
-            if (explosionPrefab) {
-                if (WeaponSystem.Pool != null) {
-                    WeaponSystem.Pool.Instantiate (explosionPrefab, transform.position, transform.rotation, 3);
-                } else {
-                    GameObject obj = (GameObject) Instantiate (explosionPrefab, transform.position, transform.rotation);
-                    Destroy (obj, 3);
-                }
-            }
-            
-            Destroy(this.gameObject);
-        }
-    }
+            GameObject obj = (GameObject) Instantiate (explosionPrefab, transform.position, transform.rotation);
+            enemy = other.transform.GetComponent<EnemyUnit> ();
 
+            if (enemy != null) {
+                enemy.SetDamage (attackPower);
+            }
+            Destroy (obj, 3);
+        }
+
+        Destroy (this.gameObject);
+    }
 }
