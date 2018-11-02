@@ -15,11 +15,7 @@ public class NavalController : MonoBehaviour {
 	public UnityEngine.UI.Text touchInfo = null;
 	public UnityEngine.UI.Text statusInfo = null;
 	public GameObject crowdPeople; // 人群欢呼
-	private bool isCheerOn = false;
-	public bool CheerOn {
-        get { return isCheerOn; }
-        set { isCheerOn = value; }
-    }
+
 	#endregion
 	// ------------------------------------------------------------------------------------------------------------
 	#region enemySpawn
@@ -45,12 +41,12 @@ public class NavalController : MonoBehaviour {
 	}
 
 	IEnumerator startTouchWall () {
-		yield return new WaitForSeconds (1.0f);
+		yield return new WaitForSeconds (0.5f);
 		// 开启触控墙
 		Process.Start ("touch.exe");
-		// yield return new WaitForSeconds (0.5f);
+		yield return new WaitForSeconds (0.5f);
 		// 开启捕捉窗口程序   
-		// Process.Start ("WinCapture.exe");
+		Process.Start ("WinCapture.exe");
 	}
 
 	protected void Start () {
