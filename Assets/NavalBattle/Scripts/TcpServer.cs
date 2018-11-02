@@ -17,10 +17,13 @@ public class TcpServer : MonoBehaviour {
     IPEndPoint ipEnd;    // 侦听端口
     public string recvStr; //** 接收的字符串  
     public string sendStr; //发送的字符串  
+    [HideInInspector]
     byte[] recvData = new byte[1024]; //接收的数据，必须为字节  
+    [HideInInspector]
     byte[] sendData = new byte[1024]; //发送的数据，必须为字节  
     int recvLen; //接收的数据长度  
     Thread connectThread; //连接线程 
+    [HideInInspector]
     public List<int> list = new List<int>(); //触控墙坐标
 
     //初始化  
@@ -89,9 +92,9 @@ public class TcpServer : MonoBehaviour {
             recvStr = Encoding.ASCII.GetString(recvData, 0, recvLen);
             foreach (Match m in Regex.Matches(recvStr, @"\d+"))
                 list.Add(int.Parse(m.Value));
-            SocketSend(sendStr);
+            // SocketSend(sendStr);
             //Debug.Log("Reserve1："+ recvStr);
-            Debug.Log("Reserve12：" );
+            // Debug.Log("Reserve12：" );
         }
 
     }
